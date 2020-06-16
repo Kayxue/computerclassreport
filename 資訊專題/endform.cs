@@ -58,7 +58,7 @@ namespace 資訊專題
         {
             set
             {
-                x = new Point(value.X, value.Y);
+                x = value;
             }
         }
 
