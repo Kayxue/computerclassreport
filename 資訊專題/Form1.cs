@@ -14,10 +14,12 @@ namespace 資訊專題
 {
     public partial class Form1 : Form
     {
+        /*宣告變數*/
         Point x;
         SoundPlayer soundPlayer = new SoundPlayer();
         PrivateFontCollection fontcollection = new PrivateFontCollection();
 
+        /*初始化*/
         public Form1()
         {
             InitializeComponent();
@@ -26,6 +28,15 @@ namespace 資訊專題
             fontcollection.AddFontFile(Application.StartupPath + "\\新特明體.TTC");
             Font font = new Font(fontcollection.Families[0], 20);
             this.Font = font;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            soundPlayer.PlayLooping();
+            int top = this.Height - 40 - button1.Height;
+            button1.Top = top;
+            button2.Top = top;
+            button3.Top = top;
         }
 
         private void leavegame_Click(object sender, EventArgs e)
@@ -93,16 +104,5 @@ namespace 資訊專題
                 soundPlayer.Stop();
             }
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            soundPlayer.PlayLooping();
-            int top = this.Height - 40 - button1.Height;
-            button1.Top = top;
-            button2.Top = top;
-            button3.Top = top;
-        }
-
-
     }
 }

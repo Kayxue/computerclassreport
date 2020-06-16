@@ -108,7 +108,8 @@ namespace 資訊專題
                 debugtext.Text="endgame";
                 timer1.Enabled = false;
                 timer2.Enabled = false;
-                endform endform = new endform(form1, this, x);
+                endform endform = new endform(form1, this);
+                endform.getfromlocation = x;
                 endform.ShowDialog();
             }
         }

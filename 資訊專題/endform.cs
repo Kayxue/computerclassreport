@@ -13,21 +13,28 @@ namespace 資訊專題
 {
     public partial class endform : Form
     {
+        /*宣告變數*/
         gameform gameform=new gameform();
         Form1 form1 = new Form1();
         bool needagain;
         Point x;
         PrivateFontCollection fontcollection = new PrivateFontCollection();
-        public endform(Form1 menu,gameform form,Point form1point)
+
+        /*初始化*/
+        public endform(Form1 menu,gameform form)
         {
             InitializeComponent();
             gameform = form;
             gameform.getresult = "endgame";
             form1 = menu;
-            this.Location = new Point(form1point.X, form1point.Y);
             fontcollection.AddFontFile(Application.StartupPath + "\\新特明體.TTC");
             Font font = new Font(fontcollection.Families[0], 20);
             this.Font = font;
+        }
+
+        private void endform_Load(object sender, EventArgs e)
+        {
+            this.Location = x;
         }
 
         private void again_Click(object sender, EventArgs e)
@@ -46,12 +53,7 @@ namespace 資訊專題
             this.Close();
             this.Dispose();
         }
-
-
-        private void endform_Load(object sender, EventArgs e)
-        {
-            this.Location = new Point(x.X, x.Y);
-        }
+        
         public Point getfromlocation
         {
             set

@@ -13,7 +13,10 @@ namespace 資訊專題
 {
     public partial class infoform : Form
     {
+        /*宣告變數*/
         PrivateFontCollection fontcollection = new PrivateFontCollection();
+
+        /*初始化*/
         public infoform()
         {
             InitializeComponent();
@@ -27,6 +30,7 @@ namespace 資訊專題
             controlinfo.Font = font;
         }
 
+        /*其他元件*/
         private void back_Click(object sender, EventArgs e)
         {
             this.Close();
