@@ -61,7 +61,7 @@
             // 
             // myheart
             // 
-            this.myheart.Location = new System.Drawing.Point(125, 559);
+            this.myheart.Location = new System.Drawing.Point(0, 570);
             this.myheart.Margin = new System.Windows.Forms.Padding(4);
             this.myheart.Name = "myheart";
             this.myheart.Size = new System.Drawing.Size(933, 31);
@@ -70,7 +70,7 @@
             // 
             // bossheart
             // 
-            this.bossheart.Location = new System.Drawing.Point(125, 9);
+            this.bossheart.Location = new System.Drawing.Point(0, -1);
             this.bossheart.Margin = new System.Windows.Forms.Padding(4);
             this.bossheart.Name = "bossheart";
             this.bossheart.Size = new System.Drawing.Size(933, 31);
@@ -112,7 +112,6 @@
             this.me.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.me.TabIndex = 9;
             this.me.TabStop = false;
-            this.me.LocationChanged += new System.EventHandler(this.me_LocationChanged);
             // 
             // boss
             // 
@@ -146,7 +145,6 @@
             // 
             // timer3
             // 
-            this.timer3.Interval = 15;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
             // gameform
@@ -163,10 +161,12 @@
             this.Controls.Add(this.myheart);
             this.Controls.Add(this.debugtext);
             this.Font = new System.Drawing.Font("標楷體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "gameform";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "勇者鬥惡龍";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.gameform_FormClosed);
             this.Load += new System.EventHandler(this.gameform_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gameform_KeyDown);

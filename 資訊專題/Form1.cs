@@ -48,9 +48,14 @@ namespace 資訊專題
 
         private void button2_Click(object sender, EventArgs e)
         {
+            gameformbackground gameformbackground = new gameformbackground();
             gameform gameform = new gameform();
+            gameform.GetGameformbackground = gameformbackground;
             gameform.GetForm1 = this;
+            gameformbackground.getformposition = new Point(this.Location.X, this.Location.Y);
+            gameformbackground.getgameformsize = gameform.returnthisformsize;
             gameform.getfromlocation = new Point(this.Location.X, this.Location.Y);
+            gameformbackground.Show();
             gameform.Show();
             this.Visible=false;
         }
@@ -65,9 +70,13 @@ namespace 資訊專題
         {
             if(debugtext.Text == "again")
             {
+                gameformbackground gameformbackground = new gameformbackground();
                 gameform gameform = new gameform();
+                gameform.GetGameformbackground = gameformbackground;
                 gameform.GetForm1 = this;
                 gameform.getfromlocation = new Point(this.Location.X, this.Location.Y);
+                gameformbackground.getformposition = new Point(this.Location.X, this.Location.Y);
+                gameformbackground.Show();
                 gameform.Show();
                 debugtext.Text = "debugtext";
             }
@@ -88,6 +97,10 @@ namespace 資訊專題
         private void Form1_Load(object sender, EventArgs e)
         {
             soundPlayer.PlayLooping();
+            int top = this.Height - 40 - button1.Height;
+            button1.Top = top;
+            button2.Top = top;
+            button3.Top = top;
         }
 
 

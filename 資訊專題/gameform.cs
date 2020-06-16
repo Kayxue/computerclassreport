@@ -17,6 +17,7 @@ namespace 資訊專題
     public partial class gameform : Form
     {
         Form1 form1 = new Form1();
+        gameformbackground gameformbackground = new gameformbackground();
         bool needagain, block;
         Point x;
         WindowsMediaPlayer wmplayer = new WindowsMediaPlayer();
@@ -24,10 +25,10 @@ namespace 資訊專題
         PrivateFontCollection fontcollection = new PrivateFontCollection();
         ImageList[] imageList = new ImageList[2];
         int memove;
-        int jump = 20;
-        int oritop;
+        int orijumpmove = 100;
         Random random = new Random();
 
+        /*初始化*/
         public gameform()
         {
             InitializeComponent();
@@ -41,17 +42,35 @@ namespace 資訊專題
             bossmove.Text = "left";
             imageList[0] = imageList1;
             imageList[1] = imageList2;
-            oritop = me.Top;
         }
 
-        public string getresult
+        private void gameform_Load(object sender, EventArgs e)
         {
-            set
+            this.Location = x;
+            this.BackColor = Color.White;
+            this.TransparencyKey = this.BackColor;
+            me.Image = imageList1.Images[0];
+            myheart.Size = new Size(this.Width, myheart.Height);
+            bossheart.Size = new Size(this.Width, myheart.Height);
+            myheart.Top = this.Height - myheart.Height;
+            myhearttext.Left = this.Width - myhearttext.Width - 20;
+            myhearttext.Top = this.Height - 110 - myhearttext.Height;
+            bosshearttext.Left = this.Width - bosshearttext.Width - 20;
+
+            debugtext.Text = "startgame";
+
+        }
+
+
+        private void gameform_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (needagain == false)
             {
-                debugtext.Text = value;
+                form1.Visible = true;
+                gameformbackground.Close();
+                wmplayer.close();
             }
         }
-
         private void debugtext_TextChanged(object sender, EventArgs e)
         {
             if (debugtext.Text == "startgame")
@@ -60,6 +79,7 @@ namespace 資訊專題
                 wmplayer.settings.setMode("loop", true);
                 timer1.Enabled = true;
                 timer2.Enabled = true;
+                timer3.Enabled = true;
             }
             else if(debugtext.Text == "again")
             {
@@ -67,12 +87,14 @@ namespace 資訊專題
                 debugtext.Text = "again";
                 needagain = true;
                 wmplayer.close();
+                gameformbackground.Close();
                 this.Close();
                 this.Dispose();
             }
             else if(debugtext.Text == "backtomenu")
             {
                 debugtext.Text = "backtomenu";
+                gameformbackground.Close();
                 this.Close();
                 needagain = false;
                 form1.Visible = true;
@@ -90,39 +112,10 @@ namespace 資訊專題
                 endform.ShowDialog();
             }
         }
-        public Form1 GetForm1
-        {
-            set
-            {
-                form1 = value;
-            }
-        }
 
-        private void gameform_Load(object sender, EventArgs e)
-        {
-            this.Location = new Point(x.X, x.Y);
-            me.Image = imageList1.Images[0];
-            debugtext.Text = "startgame";
-            
-        }
+        
 
-        public Point getfromlocation
-        {
-            set
-            {
-                x = new Point(value.X, value.Y);
-            }
-        }
-
-        private void gameform_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if (needagain == false)
-            {
-                form1.Visible = true;
-                wmplayer.close();
-            }
-        }
-
+        /*鍵盤控制*/
         private void gameform_KeyDown(object sender, KeyEventArgs e)
         {
             if(debugtext.Text == "startgame")
@@ -171,25 +164,22 @@ namespace 資訊專題
                         }
                     }
                 }
-                if (e.KeyCode == Keys.Up)
+            }
+        }
+
+        private void gameform_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (debugtext.Text == "startgame")
+            {
+                if (e.KeyCode == Keys.Space)
                 {
-                    timer3.Enabled = true;
+                    me.Image = imageList[memove].Images[0];
+                    block = false;
                 }
             }
         }
 
-        private void me_LocationChanged(object sender, EventArgs e)
-        {
-            if (me.Left + me.Width < boss.Left)
-            {
-                bossmove.Text = "left";
-            }
-            else if (me.Left > boss.Left + boss.Width)
-            {
-                bossmove.Text = "right";
-            }
-        }
-
+        /*計時器*/
         private void timer1_Tick(object sender, EventArgs e)
         {
             if(bossmove.Text == "left")
@@ -211,26 +201,54 @@ namespace 資訊專題
 
         private void timer3_Tick(object sender, EventArgs e)
         {
-            me.Top -= jump;
-
-            if (me.Top < 70) jump = 0 - jump;
-
-            if (me.Top > oritop)
+            if (me.Left + me.Width < boss.Left)
             {
-                jump = 0 - jump;
-                timer3.Enabled = false;
+                bossmove.Text = "left";
+            }
+            else if (me.Left > boss.Left + boss.Width)
+            {
+                bossmove.Text = "right";
             }
         }
 
-        private void gameform_KeyUp(object sender, KeyEventArgs e)
+        /*傳值*/
+        public Form1 GetForm1
         {
-            if (debugtext.Text == "startgame")
+            set
             {
-                if (e.KeyCode == Keys.Space)
-                {
-                    me.Image = imageList[memove].Images[0];
-                    block = false;
-                }
+                form1 = value;
+            }
+        }
+
+        public gameformbackground GetGameformbackground
+        {
+            set
+            {
+                gameformbackground = value;
+            }
+        }
+
+        public string getresult
+        {
+            set
+            {
+                debugtext.Text = value;
+            }
+        }
+
+        public Size returnthisformsize
+        {
+            get
+            {
+                return this.Size;
+            }
+        }
+
+        public Point getfromlocation
+        {
+            set
+            {
+                x = value;
             }
         }
     }

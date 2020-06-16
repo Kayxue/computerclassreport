@@ -8,11 +8,10 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>資訊專題</RootNamespace>
     <AssemblyName>資訊專題</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -65,6 +64,12 @@
     <Compile Include="gameform.Designer.cs">
       <DependentUpon>gameform.cs</DependentUpon>
     </Compile>
+    <Compile Include="gameformbackground.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gameformbackground.Designer.cs">
+      <DependentUpon>gameformbackground.cs</DependentUpon>
+    </Compile>
     <Compile Include="infoform.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gameform.resx">
       <DependentUpon>gameform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gameformbackground.resx">
+      <DependentUpon>gameformbackground.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="infoform.resx">
       <DependentUpon>infoform.cs</DependentUpon>

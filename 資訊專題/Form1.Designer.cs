@@ -36,7 +36,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(392, 554);
+            this.button2.Location = new System.Drawing.Point(392, 557);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(281, 30);
@@ -47,7 +47,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(768, 554);
+            this.button3.Location = new System.Drawing.Point(768, 557);
             this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(281, 30);
@@ -69,7 +69,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(20, 554);
+            this.button1.Location = new System.Drawing.Point(20, 557);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(281, 30);
@@ -94,6 +94,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "勇者鬥惡龍";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.VisibleChanged += new System.EventHandler(this.Form1_VisibleChanged);
