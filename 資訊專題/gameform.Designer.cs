@@ -80,6 +80,7 @@
             // bosshearttext
             // 
             this.bosshearttext.AutoSize = true;
+            this.bosshearttext.BackColor = System.Drawing.Color.Transparent;
             this.bosshearttext.Location = new System.Drawing.Point(1006, 44);
             this.bosshearttext.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.bosshearttext.Name = "bosshearttext";
@@ -90,6 +91,7 @@
             // myhearttext
             // 
             this.myhearttext.AutoSize = true;
+            this.myhearttext.BackColor = System.Drawing.Color.Transparent;
             this.myhearttext.Location = new System.Drawing.Point(1006, 539);
             this.myhearttext.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.myhearttext.Name = "myhearttext";
@@ -106,7 +108,8 @@
             // 
             // me
             // 
-            this.me.Location = new System.Drawing.Point(64, 278);
+            this.me.BackColor = System.Drawing.Color.Transparent;
+            this.me.Location = new System.Drawing.Point(64, 266);
             this.me.Name = "me";
             this.me.Size = new System.Drawing.Size(119, 211);
             this.me.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -115,6 +118,7 @@
             // 
             // boss
             // 
+            this.boss.BackColor = System.Drawing.Color.Transparent;
             this.boss.Image = global::資訊專題.Properties.Resources.unnamed;
             this.boss.Location = new System.Drawing.Point(886, 250);
             this.boss.Name = "boss";
@@ -130,6 +134,7 @@
             // bossmove
             // 
             this.bossmove.AutoSize = true;
+            this.bossmove.BackColor = System.Drawing.Color.Transparent;
             this.bossmove.Location = new System.Drawing.Point(61, 86);
             this.bossmove.Name = "bossmove";
             this.bossmove.Size = new System.Drawing.Size(72, 16);
