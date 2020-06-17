@@ -16,6 +16,7 @@ namespace 資訊專題
 {
     public partial class gameform : Form
     {
+        /*宣告變數*/
         Form1 form1 = new Form1();
         gameformbackground gameformbackground = new gameformbackground();
         bool needagain, block;
@@ -28,7 +29,7 @@ namespace 資訊專題
         int orijumpmove = 100;
         Random random = new Random();
 
-        /*初始化*/
+        /*初始化與視窗關閉*/
         public gameform()
         {
             InitializeComponent();
@@ -71,6 +72,8 @@ namespace 資訊專題
                 wmplayer.close();
             }
         }
+
+        /*遊戲狀態監聽器*/
         private void debugtext_TextChanged(object sender, EventArgs e)
         {
             if (debugtext.Text == "startgame")
@@ -168,6 +171,7 @@ namespace 資訊專題
             }
         }
 
+        /*結束格檔*/
         private void gameform_KeyUp(object sender, KeyEventArgs e)
         {
             if (debugtext.Text == "startgame")
@@ -212,7 +216,7 @@ namespace 資訊專題
             }
         }
 
-        /*傳值*/
+        /*視窗間傳值*/
         public Form1 GetForm1
         {
             set

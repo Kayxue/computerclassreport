@@ -20,7 +20,7 @@ namespace 資訊專題
         Point x;
         PrivateFontCollection fontcollection = new PrivateFontCollection();
 
-        /*初始化*/
+        /*初始化與視窗控制*/
         public endform(Form1 menu,gameform form)
         {
             InitializeComponent();
@@ -37,6 +37,18 @@ namespace 資訊專題
             this.Location = x;
         }
 
+        private void endform_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (needagain == false)
+            {
+                gameform.getresult = "backtomenu";
+                form1.Visible = true;
+                this.Close();
+                this.Dispose();
+            }
+        }
+
+        /*按鈕*/
         private void again_Click(object sender, EventArgs e)
         {
             gameform.getresult = "again";
@@ -54,6 +66,7 @@ namespace 資訊專題
             this.Dispose();
         }
         
+        /*視窗間傳值*/
         public Point getfromlocation
         {
             set
@@ -62,15 +75,6 @@ namespace 資訊專題
             }
         }
 
-        private void endform_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if (needagain == false)
-            {
-                gameform.getresult = "backtomenu";
-                form1.Visible = true;
-                this.Close();
-                this.Dispose();
-            }
-        }
+        
     }
 }

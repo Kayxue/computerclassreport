@@ -19,7 +19,7 @@ namespace 資訊專題
         SoundPlayer soundPlayer = new SoundPlayer();
         PrivateFontCollection fontcollection = new PrivateFontCollection();
 
-        /*初始化*/
+        /*初始化與視窗音樂控制*/
         public Form1()
         {
             InitializeComponent();
@@ -39,6 +39,25 @@ namespace 資訊專題
             button3.Top = top;
         }
 
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+
+        }
+
+        private void Form1_VisibleChanged(object sender, EventArgs e)
+        {
+            if (this.Visible == true)
+            {
+                soundPlayer.PlayLooping();
+            }
+            else
+            {
+                soundPlayer.Stop();
+            }
+        }
+
+        /*底部按鈕*/
         private void leavegame_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -48,13 +67,6 @@ namespace 資訊專題
         {
             infoform infoform = new infoform();
             infoform.ShowDialog();
-        }
-        public string getinfofromgame
-        {
-            set
-            {
-                debugtext.Text = value;
-            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -71,12 +83,7 @@ namespace 資訊專題
             this.Visible=false;
         }
 
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-            
-        }
-
+        /*事件監聽器*/
         private void debugtext_TextChanged(object sender, EventArgs e)
         {
             if(debugtext.Text == "again")
@@ -93,15 +100,12 @@ namespace 資訊專題
             }
         }
 
-        private void Form1_VisibleChanged(object sender, EventArgs e)
+        /*視窗間傳值*/
+        public string getinfofromgame
         {
-            if(this.Visible == true)
+            set
             {
-                soundPlayer.PlayLooping();
-            }
-            else
-            {
-                soundPlayer.Stop();
+                debugtext.Text = value;
             }
         }
     }
