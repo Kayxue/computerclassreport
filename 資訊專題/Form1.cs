@@ -34,9 +34,14 @@ namespace 資訊專題
         {
             soundPlayer.PlayLooping();
             int top = this.Height - 40 - button1.Height;
+            int distance = (this.Width - button1.Width - button2.Width - button3.Width) / 4;
             button1.Top = top;
             button2.Top = top;
             button3.Top = top;
+            button1.Left = distance;
+            button2.Left = button1.Left + button1.Width + distance;
+            button3.Left = button2.Left + button2.Width + distance;
+            
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
