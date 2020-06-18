@@ -21,10 +21,10 @@ namespace 資訊專題
         gameformbackground gameformbackground = new gameformbackground();
         bool needagain, block, attack;
         Point x;
+        Image[,] meimages;
         WindowsMediaPlayer wmplayer = new WindowsMediaPlayer();
         SoundPlayer meattacksound = new SoundPlayer();
         PrivateFontCollection fontcollection = new PrivateFontCollection();
-        ImageList[] imageList = new ImageList[2];
         int memove;
         Random random = new Random();
 
@@ -41,8 +41,8 @@ namespace 資訊專題
             this.Font = font;
             block = false;
             bossmove.Text = "left";
-            imageList[0] = imageList1;
-            imageList[1] = imageList2;
+            meimages = new Image[,] { { Image.FromFile("主角 站立.png"), Image.FromFile("主角 格擋.png") }, { Image.FromFile("主角 站立1.png"), Image.FromFile("主角 格擋1.png") } };
+            
             
         }
 
@@ -51,7 +51,7 @@ namespace 資訊專題
             this.Location = x;
             this.BackColor = Color.White;
             this.TransparencyKey = this.BackColor;
-            me.Image = imageList1.Images[0];
+            me.Image = meimages[0,0];
             myheart.Size = new Size(this.Width, myheart.Height);
             bossheart.Size = new Size(this.Width, myheart.Height);
             myheart.Top = this.Height - myheart.Height;
@@ -129,7 +129,7 @@ namespace 資訊專題
             {
                 if (e.KeyCode == Keys.Space)
                 {
-                    me.Image = imageList[memove].Images[1];
+                    me.Image = meimages[memove, 1];
                     block = true;
                 }
                 if (e.KeyCode == Keys.Left)
@@ -138,7 +138,7 @@ namespace 資訊專題
                     {
                         me.Left -= 10;
                         memove = 1;
-                        me.Image = imageList[memove].Images[0];
+                        me.Image = meimages[memove, 0];
                         block = false;
                     }
                 }
@@ -148,7 +148,7 @@ namespace 資訊專題
                     {
                         me.Left += 10;
                         memove = 0;
-                        me.Image = imageList[memove].Images[0];
+                        me.Image = meimages[memove, 0];
                         block = false;
                     }
                 }
@@ -182,7 +182,7 @@ namespace 資訊專題
             {
                 if (e.KeyCode == Keys.Space)
                 {
-                    me.Image = imageList[memove].Images[0];
+                    me.Image = meimages[memove, 0];
                     block = false;
                 }
                 else if (e.KeyCode == Keys.Z)

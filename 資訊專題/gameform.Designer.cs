@@ -29,19 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(gameform));
             this.debugtext = new System.Windows.Forms.Label();
             this.myheart = new System.Windows.Forms.ProgressBar();
             this.bossheart = new System.Windows.Forms.ProgressBar();
             this.bosshearttext = new System.Windows.Forms.Label();
             this.myhearttext = new System.Windows.Forms.Label();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.me = new System.Windows.Forms.PictureBox();
             this.boss = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.bossmove = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.me)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boss)).BeginInit();
@@ -99,13 +96,6 @@
             this.myhearttext.TabIndex = 6;
             this.myhearttext.Text = "label2";
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "主角 站立.png");
-            this.imageList1.Images.SetKeyName(1, "主角 格擋.png");
-            // 
             // me
             // 
             this.me.BackColor = System.Drawing.Color.Transparent;
@@ -140,13 +130,6 @@
             this.bossmove.Size = new System.Drawing.Size(72, 16);
             this.bossmove.TabIndex = 10;
             this.bossmove.Text = "bossmove";
-            // 
-            // imageList2
-            // 
-            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
-            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList2.Images.SetKeyName(0, "主角 站立1.png");
-            this.imageList2.Images.SetKeyName(1, "主角 格擋1.png");
             // 
             // timer3
             // 
@@ -192,11 +175,9 @@
         private System.Windows.Forms.Label myhearttext;
         private System.Windows.Forms.PictureBox boss;
         private System.Windows.Forms.PictureBox me;
-        private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label bossmove;
         private System.Windows.Forms.Timer timer2;
-        private System.Windows.Forms.ImageList imageList2;
         private System.Windows.Forms.Timer timer3;
     }
 }
