@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,11 +16,13 @@ namespace 資訊專題
         /*變數*/
         Point x;
         Size gameformsize;
+        SoundPlayer bossattacksound = new SoundPlayer();
 
         /*初始化*/
         public gameformbackground()
         {
             InitializeComponent();
+            bossattacksound.SoundLocation = Application.StartupPath + "";
         }
 
         private void gameformbackground_Load(object sender, EventArgs e)
@@ -53,5 +56,9 @@ namespace 資訊專題
             }
         }
         
+        public void playbossattacksound()
+        {
+            //bossattacksound.Play();
+        }
     }
 }
