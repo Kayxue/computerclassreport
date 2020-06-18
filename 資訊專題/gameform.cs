@@ -154,10 +154,12 @@ namespace 資訊專題
                     if (me.Left + me.Width > boss.Left && me.Left<boss.Left+boss.Width)
                     {
                         block = false;
+                        attack = true;
                         if(bossheart.Value - 10 > 0)
                         {
                             bossheart.Value -= 10;
                             bosshearttext.Text = bossheart.Value.ToString();
+                            attack = false;
                         }
                         else
                         {
@@ -165,6 +167,7 @@ namespace 資訊專題
                             bossheart.Value = bossheart.Maximum;
                             bosshearttext.Text = bossheart.Value.ToString();
                             boss.Left = random.Next(5, this.Width - boss.Width - 10);
+                            attack = false;
                         }
                     }
                 }
