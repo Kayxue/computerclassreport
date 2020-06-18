@@ -19,7 +19,7 @@ namespace 資訊專題
         /*宣告變數*/
         Form1 form1 = new Form1();
         gameformbackground gameformbackground = new gameformbackground();
-        bool needagain, block;
+        bool needagain, block, attack;
         Point x;
         WindowsMediaPlayer wmplayer = new WindowsMediaPlayer();
         SoundPlayer soundPlayer = new SoundPlayer();
