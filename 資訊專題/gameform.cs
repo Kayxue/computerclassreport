@@ -57,7 +57,9 @@ namespace 資訊專題
             myhearttext.Left = this.Width - myhearttext.Width - 20;
             myhearttext.Top = this.Height - 110 - myhearttext.Height;
             bosshearttext.Left = this.Width - bosshearttext.Width - 20;
-
+            int bossmetop = this.Height - me.Height - 150;
+            me.Top = bossmetop;
+            boss.Top = bossmetop;
             debugtext.Text = "startgame";
 
         }
