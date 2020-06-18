@@ -153,7 +153,7 @@ namespace 資訊專題
                 }
                 if(e.KeyCode == Keys.Z)
                 {
-                    if (me.Left + me.Width > boss.Left && me.Left<boss.Left+boss.Width)
+                    if (me.Left + me.Width > boss.Left && me.Left<boss.Left+boss.Width && attack==false)
                     {
                         block = false;
                         attack = true;
@@ -161,7 +161,6 @@ namespace 資訊專題
                         {
                             bossheart.Value -= 10;
                             bosshearttext.Text = bossheart.Value.ToString();
-                            attack = false;
                         }
                         else
                         {
@@ -169,14 +168,13 @@ namespace 資訊專題
                             bossheart.Value = bossheart.Maximum;
                             bosshearttext.Text = bossheart.Value.ToString();
                             boss.Left = random.Next(5, this.Width - boss.Width - 10);
-                            attack = false;
                         }
                     }
                 }
             }
         }
 
-        /*結束格檔*/
+        /*結束格檔與攻擊*/
         private void gameform_KeyUp(object sender, KeyEventArgs e)
         {
             if (debugtext.Text == "startgame")
@@ -185,6 +183,10 @@ namespace 資訊專題
                 {
                     me.Image = imageList[memove].Images[0];
                     block = false;
+                }
+                else if (e.KeyCode == Keys.Z)
+                {
+                    attack = false;
                 }
             }
         }
