@@ -22,7 +22,7 @@ namespace 資訊專題
         bool needagain, block, attack;
         Point x;
         WindowsMediaPlayer wmplayer = new WindowsMediaPlayer();
-        SoundPlayer soundPlayer = new SoundPlayer();
+        SoundPlayer meattacksound = new SoundPlayer();
         PrivateFontCollection fontcollection = new PrivateFontCollection();
         ImageList[] imageList = new ImageList[2];
         int memove;
@@ -33,7 +33,7 @@ namespace 資訊專題
         public gameform()
         {
             InitializeComponent();
-            //soundPlayer.SoundLocation = Application.StartupPath + "";
+            meattacksound.SoundLocation = Application.StartupPath + "";
             this.KeyPreview = true;
             myhearttext.Text = myheart.Maximum.ToString();
             bosshearttext.Text = bossheart.Maximum.ToString();
@@ -44,6 +44,7 @@ namespace 資訊專題
             bossmove.Text = "left";
             imageList[0] = imageList1;
             imageList[1] = imageList2;
+            
         }
 
         private void gameform_Load(object sender, EventArgs e)
