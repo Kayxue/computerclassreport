@@ -32,7 +32,7 @@ namespace 資訊專題
         public gameform()
         {
             InitializeComponent();
-            meattacksound.SoundLocation = Application.StartupPath + "";
+            meattacksound.SoundLocation = Application.StartupPath + "\\imply.wav";
             this.KeyPreview = true;
             myhearttext.Text = myheart.Maximum.ToString();
             bosshearttext.Text = bossheart.Maximum.ToString();
@@ -158,6 +158,7 @@ namespace 資訊專題
                     {
                         block = false;
                         attack = true;
+
                         if(bossheart.Value - 10 > 0)
                         {
                             bossheart.Value -= 10;
@@ -170,6 +171,7 @@ namespace 資訊專題
                             bosshearttext.Text = bossheart.Value.ToString();
                             boss.Left = random.Next(5, this.Width - boss.Width - 10);
                         }
+
                     }
                 }
             }

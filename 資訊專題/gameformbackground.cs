@@ -16,13 +16,11 @@ namespace 資訊專題
         /*變數*/
         Point x;
         Size gameformsize;
-        SoundPlayer bossattacksound = new SoundPlayer();
 
         /*初始化*/
         public gameformbackground()
         {
             InitializeComponent();
-            bossattacksound.SoundLocation = Application.StartupPath + "";
         }
 
         private void gameformbackground_Load(object sender, EventArgs e)
@@ -54,11 +52,6 @@ namespace 資訊專題
             {
                 this.Location = value;
             }
-        }
-        
-        public void playbossattacksound()
-        {
-            //bossattacksound.Play();
         }
     }
 }
