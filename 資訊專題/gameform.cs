@@ -17,15 +17,15 @@ namespace 資訊專題
     public partial class gameform : Form
     {
         /*宣告變數*/
+        int memove;
+        bool needagain, block, attack;
         Form1 form1 = new Form1();
         gameformbackground gameformbackground = new gameformbackground();
-        bool needagain, block, attack;
         Point x;
         Image[,] meimages;
         WindowsMediaPlayer wmplayer = new WindowsMediaPlayer();
         SoundPlayer meattacksound = new SoundPlayer();
         PrivateFontCollection fontcollection = new PrivateFontCollection();
-        int memove;
         Random random = new Random();
 
         /*初始化與視窗關閉*/
