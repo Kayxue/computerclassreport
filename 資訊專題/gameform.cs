@@ -26,7 +26,6 @@ namespace 資訊專題
         PrivateFontCollection fontcollection = new PrivateFontCollection();
         ImageList[] imageList = new ImageList[2];
         int memove;
-        int orijumpmove = 100;
         Random random = new Random();
 
         /*初始化與視窗關閉*/
