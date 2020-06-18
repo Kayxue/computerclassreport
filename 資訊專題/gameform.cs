@@ -33,6 +33,7 @@ namespace 資訊專題
         public gameform()
         {
             InitializeComponent();
+            //soundPlayer.SoundLocation = Application.StartupPath + "";
             this.KeyPreview = true;
             myhearttext.Text = myheart.Maximum.ToString();
             bosshearttext.Text = bossheart.Maximum.ToString();
