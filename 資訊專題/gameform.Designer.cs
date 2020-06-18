@@ -40,7 +40,6 @@
             this.bossmove = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
-            this.bossattack = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.me)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boss)).BeginInit();
             this.SuspendLayout();
@@ -136,23 +135,12 @@
             // 
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
-            // bossattack
-            // 
-            this.bossattack.AutoSize = true;
-            this.bossattack.Location = new System.Drawing.Point(61, 132);
-            this.bossattack.Name = "bossattack";
-            this.bossattack.Size = new System.Drawing.Size(88, 16);
-            this.bossattack.TabIndex = 11;
-            this.bossattack.Text = "bossattack";
-            this.bossattack.TextChanged += new System.EventHandler(this.bossattack_TextChanged);
-            // 
             // gameform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1067, 600);
-            this.Controls.Add(this.bossattack);
             this.Controls.Add(this.bossmove);
             this.Controls.Add(this.me);
             this.Controls.Add(this.boss);
@@ -191,6 +179,5 @@
         private System.Windows.Forms.Label bossmove;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Timer timer3;
-        private System.Windows.Forms.Label bossattack;
     }
 }
