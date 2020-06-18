@@ -76,7 +76,7 @@ namespace 資訊專題
             }
         }
 
-        /*遊戲狀態監聽器*/
+        /*遊戲監聽器*/
         private void debugtext_TextChanged(object sender, EventArgs e)
         {
             if (debugtext.Text == "startgame")
@@ -120,7 +120,13 @@ namespace 資訊專題
             }
         }
 
-        
+        private void bossattack_TextChanged(object sender, EventArgs e)
+        {
+            if(bossattack.Text == "true")
+            {
+
+            }
+        }
 
         /*鍵盤控制*/
         private void gameform_KeyDown(object sender, KeyEventArgs e)
@@ -202,6 +208,11 @@ namespace 資訊專題
                 if (boss.Left - 10 >= 0)
                 {
                     boss.Left -= 10;
+                    if(boss.Left < me.Left + me.Width)
+                    {
+                        bossattack.Text = "true";
+                        timer1.Enabled = false;
+                    }
                 }
             }
             else if(bossmove.Text == "right")
@@ -210,6 +221,11 @@ namespace 資訊專題
                 {
 
                     boss.Left += 10;
+                    if (boss.Left + boss.Width > me.Left)
+                    {
+                        bossattack.Text = "true";
+                        timer1.Enabled = false;
+                    }
                 }
             }
         }
