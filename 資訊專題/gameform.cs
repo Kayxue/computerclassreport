@@ -134,7 +134,8 @@ namespace 資訊專題
             {
                 if (e.KeyCode == Keys.Space)
                 {
-                    me.Image = meimages[memove, 1];
+                    timer4.Enabled = true;
+                    timer5.Enabled = false;
                     block = true;
                 }
                 if(block == false)
@@ -193,8 +194,8 @@ namespace 資訊專題
             {
                 if (e.KeyCode == Keys.Space)
                 {
-                    me.Image = meimages[memove, 0];
-                    block = false;
+                    timer4.Enabled = false;
+                    timer5.Enabled = true;
                 }
                 else if (e.KeyCode == Keys.Z)
                 {
@@ -245,6 +246,16 @@ namespace 資訊專題
             {
                 bossmove.Text = "right";
             }
+        }
+
+        private void timer4_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer5_Tick(object sender, EventArgs e)
+        {
+
         }
 
         /*視窗間傳值*/
