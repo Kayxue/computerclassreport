@@ -17,7 +17,7 @@ namespace 資訊專題
     public partial class gameform : Form
     {
         /*宣告變數*/
-        int memove, bossmoveint, nowmeimage;
+        int memove, bossmoveint, nowmeimage, meimagecount;
         bool needagain, block, attack;
         Form1 form1 = new Form1();
         gameformbackground gameformbackground = new gameformbackground();
@@ -253,12 +253,29 @@ namespace 資訊專題
             //nowmeimage現在圖示編號
             //block是否處於格擋
             //meimage[方向編號,造型編號]
-
+            if(nowmeimage < meimagecount)
+            {
+                me.Image = meimages[memove, nowmeimage];
+                nowmeimage += 1;
+            }
+            else
+            {
+                timer4.Enabled = false;
+            }
         }
 
         private void timer5_Tick(object sender, EventArgs e)
         {
-            
+            if (nowmeimage >= 0)
+            {
+                me.Image = meimages[memove, nowmeimage];
+                nowmeimage -= 1;
+            }
+            else
+            {
+                timer5.Enabled = false;
+                block = false;
+            }
         }
 
         /*視窗間傳值*/
