@@ -17,7 +17,7 @@ namespace 資訊專題
     public partial class gameform : Form
     {
         /*宣告變數*/
-        int memove,bossmoveint;
+        int memove, bossmoveint, nowmeimage;
         bool needagain, block, attack;
         Form1 form1 = new Form1();
         gameformbackground gameformbackground = new gameformbackground();
@@ -50,7 +50,7 @@ namespace 資訊專題
                 { Image.FromFile("魔王 初始.png"), Image.FromFile("魔王 攻擊1.png"), Image.FromFile("魔王 攻擊2.png") }, 
                 { Image.FromFile("魔王 初始(1).png"), Image.FromFile("魔王 攻擊1(1).png"), Image.FromFile("魔王 攻擊2(1).png") } 
             };
-            
+            nowmeimage = 0;
         }
 
         private void gameform_Load(object sender, EventArgs e)
@@ -137,48 +137,52 @@ namespace 資訊專題
                     me.Image = meimages[memove, 1];
                     block = true;
                 }
-                if (e.KeyCode == Keys.Left)
+                if(block == false)
                 {
-                    if (me.Left - 10 >= 0)
+                    if (e.KeyCode == Keys.Left)
                     {
-                        me.Left -= 10;
-                        memove = 1;
-                        me.Image = meimages[memove, 0];
-                        block = false;
+                        if (me.Left - 10 >= 0)
+                        {
+                            me.Left -= 10;
+                            memove = 1;
+                            me.Image = meimages[memove, 0];
+                            block = false;
+                        }
                     }
-                }
-                if (e.KeyCode == Keys.Right)
-                {
-                    if (me.Left + 10 <= this.Width - 20 - me.Width)
+                    if (e.KeyCode == Keys.Right)
                     {
-                        me.Left += 10;
-                        memove = 0;
-                        me.Image = meimages[memove, 0];
-                        block = false;
+                        if (me.Left + 10 <= this.Width - 20 - me.Width)
+                        {
+                            me.Left += 10;
+                            memove = 0;
+                            me.Image = meimages[memove, 0];
+                            block = false;
+                        }
                     }
-                }
-                if(e.KeyCode == Keys.Z)
-                {
-                    if (me.Left + me.Width > boss.Left && me.Left<boss.Left+boss.Width && attack==false)
+                    if (e.KeyCode == Keys.Z)
                     {
-                        block = false;
-                        attack = true;
+                        if (me.Left + me.Width > boss.Left && me.Left < boss.Left + boss.Width && attack == false)
+                        {
+                            block = false;
+                            attack = true;
 
-                        if(bossheart.Value - 10 > 0)
-                        {
-                            bossheart.Value -= 10;
-                            bosshearttext.Text = bossheart.Value.ToString();
+                            if (bossheart.Value - 10 > 0)
+                            {
+                                bossheart.Value -= 10;
+                                bosshearttext.Text = bossheart.Value.ToString();
+                            }
+                            else
+                            {
+                                bossheart.Maximum += 100;
+                                bossheart.Value = bossheart.Maximum;
+                                bosshearttext.Text = bossheart.Value.ToString();
+                                boss.Left = random.Next(5, this.Width - boss.Width - 10);
+                            }
+                            meattacksound.Play();
                         }
-                        else
-                        {
-                            bossheart.Maximum += 100;
-                            bossheart.Value = bossheart.Maximum;
-                            bosshearttext.Text = bossheart.Value.ToString();
-                            boss.Left = random.Next(5, this.Width - boss.Width - 10);
-                        }
-                        meattacksound.Play();
                     }
                 }
+                    
             }
         }
 

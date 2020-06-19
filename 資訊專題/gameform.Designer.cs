@@ -40,6 +40,8 @@
             this.bossmove = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.timer4 = new System.Windows.Forms.Timer(this.components);
+            this.timer5 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.me)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boss)).BeginInit();
             this.SuspendLayout();
@@ -178,5 +180,7 @@
         private System.Windows.Forms.Label bossmove;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.Timer timer4;
+        private System.Windows.Forms.Timer timer5;
     }
 }
