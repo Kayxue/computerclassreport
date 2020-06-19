@@ -250,12 +250,15 @@ namespace 資訊專題
 
         private void timer4_Tick(object sender, EventArgs e)
         {
+            //nowmeimage現在圖示編號
+            //block是否處於格擋
+            //meimage[方向編號,造型編號]
 
         }
 
         private void timer5_Tick(object sender, EventArgs e)
         {
-
+            
         }
 
         /*視窗間傳值*/
