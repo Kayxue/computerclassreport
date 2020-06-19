@@ -17,12 +17,13 @@ namespace 資訊專題
     public partial class gameform : Form
     {
         /*宣告變數*/
-        int memove;
+        int memove,bossmoveint;
         bool needagain, block, attack;
         Form1 form1 = new Form1();
         gameformbackground gameformbackground = new gameformbackground();
         Point x;
         Image[,] meimages;
+        Image[,] bossimages;
         WindowsMediaPlayer wmplayer = new WindowsMediaPlayer();
         SoundPlayer meattacksound = new SoundPlayer();
         PrivateFontCollection fontcollection = new PrivateFontCollection();
@@ -41,8 +42,14 @@ namespace 資訊專題
             this.Font = font;
             block = false;
             bossmove.Text = "left";
-            meimages = new Image[,] { { Image.FromFile("主角 站立.png"), Image.FromFile("主角 格擋.png") }, { Image.FromFile("主角 站立1.png"), Image.FromFile("主角 格擋1.png") } };
-            
+            meimages = new Image[,] {
+                { Image.FromFile("主角 站立.png"), Image.FromFile("主角 格擋.png") },
+                { Image.FromFile("主角 站立1.png"), Image.FromFile("主角 格擋1.png") } 
+            };
+            bossimages = new Image[,] { 
+                { Image.FromFile("魔王 初始.png"), Image.FromFile("魔王 攻擊1.png"), Image.FromFile("魔王 攻擊2.png") }, 
+                { Image.FromFile("魔王 初始(1).png"), Image.FromFile("魔王 攻擊1(1).png"), Image.FromFile("魔王 攻擊2(1).png") } 
+            };
             
         }
 
@@ -62,7 +69,7 @@ namespace 資訊專題
             me.Top = bossmetop;
             boss.Top = bossmetop;
             debugtext.Text = "startgame";
-
+            bossmoveint = 0;
         }
 
 
@@ -195,10 +202,13 @@ namespace 資訊專題
         /*計時器*/
         private void timer1_Tick(object sender, EventArgs e)
         {
+            boss.Image = bossimages[bossmoveint, 0];
             if(bossmove.Text == "left")
             {
+                
                 if (boss.Left - 10 >= 0)
                 {
+                    bossmoveint = 0;
                     boss.Left -= 10;
                     if(boss.Left < me.Left + me.Width)
                     {
@@ -208,9 +218,10 @@ namespace 資訊專題
             }
             else if(bossmove.Text == "right")
             {
+                
                 if (boss.Left + 10 <= this.Width - 20 - boss.Width)
                 {
-
+                    bossmoveint = 1;
                     boss.Left += 10;
                     if (boss.Left + boss.Width > me.Left)
                     {

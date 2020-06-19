@@ -110,9 +110,9 @@
             // 
             this.boss.BackColor = System.Drawing.Color.Transparent;
             this.boss.Image = global::資訊專題.Properties.Resources.unnamed;
-            this.boss.Location = new System.Drawing.Point(886, 250);
+            this.boss.Location = new System.Drawing.Point(753, 178);
             this.boss.Name = "boss";
-            this.boss.Size = new System.Drawing.Size(159, 227);
+            this.boss.Size = new System.Drawing.Size(292, 299);
             this.boss.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.boss.TabIndex = 8;
             this.boss.TabStop = false;
