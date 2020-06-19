@@ -59,15 +59,15 @@ namespace 資訊專題
             this.BackColor = Color.White;
             this.TransparencyKey = this.BackColor;
             me.Image = meimages[0,0];
+            boss.Image = bossimages[0, 0];
             myheart.Size = new Size(this.Width, myheart.Height);
             bossheart.Size = new Size(this.Width, myheart.Height);
             myheart.Top = this.Height - myheart.Height;
             myhearttext.Left = this.Width - myhearttext.Width - 20;
             myhearttext.Top = this.Height - 110 - myhearttext.Height;
             bosshearttext.Left = this.Width - bosshearttext.Width - 20;
-            int bossmetop = this.Height - me.Height - 150;
-            me.Top = bossmetop;
-            boss.Top = bossmetop;
+            me.Top = this.Height - me.Height - 150;
+            boss.Top = this.Height - boss.Height - 100;
             debugtext.Text = "startgame";
             bossmoveint = 0;
         }

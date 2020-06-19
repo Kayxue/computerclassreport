@@ -109,7 +109,6 @@
             // boss
             // 
             this.boss.BackColor = System.Drawing.Color.Transparent;
-            this.boss.Image = global::資訊專題.Properties.Resources.unnamed;
             this.boss.Location = new System.Drawing.Point(753, 178);
             this.boss.Name = "boss";
             this.boss.Size = new System.Drawing.Size(292, 299);
