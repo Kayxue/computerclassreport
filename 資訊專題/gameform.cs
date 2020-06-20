@@ -43,8 +43,8 @@ namespace 資訊專題
             block = false;
             bossmove.Text = "left";
             meimages = new Image[,] {
-                { Image.FromFile("主角 站立.png"), Image.FromFile("主角 格擋.png") },
-                { Image.FromFile("主角 站立1.png"), Image.FromFile("主角 格擋1.png") } 
+                { Image.FromFile("主角 站立.png"), Image.FromFile("主角 格擋1.png"), Image.FromFile("主角 格擋2.png") },
+                { Image.FromFile("主角 站立1.png"), Image.FromFile("主角 格擋1(1).png"), Image.FromFile("主角 格擋2(1).png") } 
             };
             bossimages = new Image[,] { 
                 { Image.FromFile("魔王 初始.png"), Image.FromFile("魔王 攻擊1.png"), Image.FromFile("魔王 攻擊2.png") }, 
