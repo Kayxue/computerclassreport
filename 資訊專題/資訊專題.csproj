@@ -76,6 +76,12 @@
     <Compile Include="infoform.Designer.cs">
       <DependentUpon>infoform.cs</DependentUpon>
     </Compile>
+    <Compile Include="pauseform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pauseform.Designer.cs">
+      <DependentUpon>pauseform.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="endform.resx">
@@ -92,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="infoform.resx">
       <DependentUpon>infoform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pauseform.resx">
+      <DependentUpon>pauseform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

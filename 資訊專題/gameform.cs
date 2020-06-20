@@ -18,7 +18,7 @@ namespace 資訊專題
     {
         /*宣告變數*/
         int memove, bossmoveint, nowmeimage, meimagecount = 3;
-        bool needagain, block, attack;
+        bool needagain, block, attack, resume;
         Form1 form1 = new Form1();
         gameformbackground gameformbackground = new gameformbackground();
         Point x;
@@ -51,6 +51,7 @@ namespace 資訊專題
                 { Image.FromFile("魔王 初始(1).png"), Image.FromFile("魔王 攻擊1(1).png"), Image.FromFile("魔王 攻擊2(1).png") } 
             };
             nowmeimage = 0;
+            resume = false;
         }
 
         private void gameform_Load(object sender, EventArgs e)
@@ -88,11 +89,26 @@ namespace 資訊專題
         {
             if (debugtext.Text == "startgame")
             {
-                wmplayer.URL = Application.StartupPath + "\\遊戲中背景音樂.wav";
-                wmplayer.settings.setMode("loop", true);
+                if(resume == false)
+                {
+                    wmplayer.URL = Application.StartupPath + "\\遊戲中背景音樂.wav";
+                    wmplayer.settings.setMode("loop", true);
+                }
+                else
+                {
+                    wmplayer.controls.play();
+                }
+                this.TopMost = true;
                 timer1.Enabled = true;
                 timer2.Enabled = true;
                 timer3.Enabled = true;
+            }
+            else if (debugtext.Text == "gamepause")
+            {
+                pauseform pauseform = new pauseform(this);
+
+                wmplayer.controls.pause();
+                pauseform.ShowDialog();
             }
             else if(debugtext.Text == "again")
             {
@@ -182,8 +198,11 @@ namespace 資訊專題
                             meattacksound.Play();
                         }
                     }
+                    if (e.KeyCode == Keys.P)
+                    {
+                        debugtext.Text = "gamepause";
+                    }
                 }
-                    
             }
         }
 
@@ -207,33 +226,37 @@ namespace 資訊專題
         /*計時器*/
         private void timer1_Tick(object sender, EventArgs e)
         {
-            boss.Image = bossimages[bossmoveint, 0];
-            if(bossmove.Text == "left")
+            if(debugtext.Text == "startgame")
             {
-                
-                if (boss.Left - 10 >= 0)
+                boss.Image = bossimages[bossmoveint, 0];
+                if(bossmove.Text == "left")
                 {
-                    bossmoveint = 0;
-                    boss.Left -= 10;
-                    if(boss.Left < me.Left + me.Width)
+                
+                    if (boss.Left - 10 >= 0)
                     {
+                        bossmoveint = 0;
+                        boss.Left -= 10;
+                        if(boss.Left < me.Left + me.Width)
+                        {
                         
+                        }
+                    }
+                }
+                else if(bossmove.Text == "right")
+                {
+                
+                    if (boss.Left + 10 <= this.Width - 20 - boss.Width)
+                    {
+                        bossmoveint = 1;
+                        boss.Left += 10;
+                        if (boss.Left + boss.Width > me.Left)
+                        {
+                        
+                        }
                     }
                 }
             }
-            else if(bossmove.Text == "right")
-            {
                 
-                if (boss.Left + 10 <= this.Width - 20 - boss.Width)
-                {
-                    bossmoveint = 1;
-                    boss.Left += 10;
-                    if (boss.Left + boss.Width > me.Left)
-                    {
-                        
-                    }
-                }
-            }
         }
 
         private void timer3_Tick(object sender, EventArgs e)
@@ -253,29 +276,41 @@ namespace 資訊專題
             //nowmeimage現在圖示編號
             //block是否處於格擋
             //meimage[方向編號,造型編號]
-            if(nowmeimage < meimagecount)
+            if(nowmeimage == -1)
             {
-                me.Image = meimages[memove, nowmeimage];
-                nowmeimage += 1;
+                nowmeimage = 0;
             }
-            else
+            if(block)
             {
-                timer4.Enabled = false;
+                if (nowmeimage < meimagecount)
+                {
+                    me.Image = meimages[memove, nowmeimage];
+                    nowmeimage += 1;
+                }
+                else
+                {
+                    timer4.Enabled = false;
+                }
             }
         }
 
         private void timer5_Tick(object sender, EventArgs e)
         {
-            if (nowmeimage >= 0)
+            if (block)
             {
-                me.Image = meimages[memove, nowmeimage];
                 nowmeimage -= 1;
-            }
-            else
-            {
-                timer5.Enabled = false;
-                block = false;
-            }
+                if (nowmeimage > 0)
+                {
+                    me.Image = meimages[memove, nowmeimage];
+                    nowmeimage -= 1;
+                }
+                else
+                {
+                    timer5.Enabled = false;
+                    block = false;
+
+                }
+            } 
         }
 
         /*視窗間傳值*/

@@ -129,3 +129,4 @@ C:\Users\user\Desktop\computerclassreport\資訊專題\obj\Debug\資訊專題.pd
 \\Mac\Home\Downloads\computerclassreport\資訊專題\obj\Debug\資訊專題.gameformbackground.resources
 \\Mac\Home\Downloads\computerclassreport\資訊專題\obj\Debug\資訊專題.Properties.Resources.resources
 \\Mac\Home\Downloads\computerclassreport\資訊專題\obj\Debug\資訊專題.csproj.CoreCompileInputs.cache
+\\Mac\Home\Downloads\computerclassreport\資訊專題\obj\Debug\資訊專題.pauseform.resources
