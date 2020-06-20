@@ -17,7 +17,7 @@ namespace 資訊專題
     public partial class gameform : Form
     {
         /*宣告變數*/
-        int memove, bossmoveint, nowmeimage, meimagecount;
+        int memove, bossmoveint, nowmeimage, meimagecount = 3;
         bool needagain, block, attack;
         Form1 form1 = new Form1();
         gameformbackground gameformbackground = new gameformbackground();
