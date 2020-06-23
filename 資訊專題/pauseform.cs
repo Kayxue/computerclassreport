@@ -13,10 +13,10 @@ namespace 資訊專題
 {
     public partial class pauseform : Form
     {
-        gameform gameform = new gameform();
+        gameformmain gameform = new gameformmain();
         PrivateFontCollection fontcollection = new PrivateFontCollection();
         bool buttonclicked = false;
-        public pauseform(gameform game)
+        public pauseform(gameformmain game)
         {
             InitializeComponent();
             int distance;

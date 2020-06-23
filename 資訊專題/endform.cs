@@ -14,14 +14,14 @@ namespace 資訊專題
     public partial class endform : Form
     {
         /*宣告變數*/
-        gameform gameform=new gameform();
+        gameformmain gameform=new gameformmain();
         Form1 form1 = new Form1();
         bool needagain;
         Point x;
         PrivateFontCollection fontcollection = new PrivateFontCollection();
 
         /*初始化與視窗控制*/
-        public endform(Form1 menu,gameform form)
+        public endform(Form1 menu,gameformmain form)
         {
             InitializeComponent();
             gameform = form;

@@ -77,7 +77,7 @@ namespace 資訊專題
         private void button2_Click(object sender, EventArgs e)
         {
             gameformbackground gameformbackground = new gameformbackground();
-            gameform gameform = new gameform();
+            gameformmain gameform = new gameformmain();
             gameform.GetGameformbackground = gameformbackground;
             gameform.GetForm1 = this;
             gameformbackground.getformposition = new Point(this.Location.X, this.Location.Y);
@@ -94,7 +94,7 @@ namespace 資訊專題
             if(debugtext.Text == "again")
             {
                 gameformbackground gameformbackground = new gameformbackground();
-                gameform gameform = new gameform();
+                gameformmain gameform = new gameformmain();
                 gameform.GetGameformbackground = gameformbackground;
                 gameform.GetForm1 = this;
                 gameform.getfromlocation = new Point(this.Location.X, this.Location.Y);
