@@ -28,22 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.boss = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.boss)).BeginInit();
             this.SuspendLayout();
+            // 
+            // boss
+            // 
+            this.boss.BackColor = System.Drawing.Color.Transparent;
+            this.boss.Location = new System.Drawing.Point(254, 76);
+            this.boss.Name = "boss";
+            this.boss.Size = new System.Drawing.Size(292, 299);
+            this.boss.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.boss.TabIndex = 9;
+            this.boss.TabStop = false;
             // 
             // gameformboss
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 600);
+            this.Controls.Add(this.boss);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "gameformboss";
             this.Text = "gameformboss";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.gameformboss_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.boss)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.PictureBox boss;
     }
 }

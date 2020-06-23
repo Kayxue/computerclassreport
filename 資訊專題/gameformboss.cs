@@ -20,7 +20,9 @@ namespace 資訊專題
 
         private void gameformboss_Load(object sender, EventArgs e)
         {
-
+            this.BackColor = Color.White;
+            this.TransparencyKey = Color.White;
+            boss.Top = this.Height - boss.Height - 100;
         }
 
         public Size getgameformsize
