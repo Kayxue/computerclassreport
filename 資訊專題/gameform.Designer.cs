@@ -38,10 +38,9 @@
             this.boss = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.bossmove = new System.Windows.Forms.Label();
-            this.timer3 = new System.Windows.Forms.Timer(this.components);
-            this.timer4 = new System.Windows.Forms.Timer(this.components);
-            this.timer5 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.timer4 = new System.Windows.Forms.Timer(this.components);
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.me)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boss)).BeginInit();
             this.SuspendLayout();
@@ -132,17 +131,14 @@
             this.bossmove.TabIndex = 10;
             this.bossmove.Text = "bossmove";
             // 
+            // timer4
+            // 
+            this.timer4.Interval = 30;
+            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
+            // 
             // timer3
             // 
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
-            // 
-            // timer4
-            // 
-            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
-            // 
-            // timer5
-            // 
-            this.timer5.Tick += new System.EventHandler(this.timer5_Tick);
             // 
             // gameform
             // 
@@ -186,9 +182,8 @@
         private System.Windows.Forms.PictureBox me;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label bossmove;
-        private System.Windows.Forms.Timer timer3;
-        private System.Windows.Forms.Timer timer4;
-        private System.Windows.Forms.Timer timer5;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Timer timer4;
+        private System.Windows.Forms.Timer timer3;
     }
 }

@@ -17,8 +17,9 @@ namespace 資訊專題
     public partial class gameform : Form
     {
         /*宣告變數*/
-        int memove, bossmoveint, nowmeimage, meimagecount = 3;
+        int memove, bossmoveint, nowmeimage, meimagecount = 3, nowbossimage, bossimagecount = 3;
         bool needagain, block, attack, resume;
+        string meblockpicturemovement = "block";
         Form1 form1 = new Form1();
         gameformbackground gameformbackground = new gameformbackground();
         Point x;
@@ -73,7 +74,6 @@ namespace 資訊專題
             bossmoveint = 0;
         }
 
-
         private void gameform_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (needagain == false)
@@ -106,8 +106,8 @@ namespace 資訊專題
             else if (debugtext.Text == "gamepause")
             {
                 pauseform pauseform = new pauseform(this);
-
                 wmplayer.controls.pause();
+                pauseform.TopMost = true;
                 pauseform.ShowDialog();
             }
             else if(debugtext.Text == "again")
@@ -132,7 +132,6 @@ namespace 資訊專題
             }
             else if(debugtext.Text == "endgame")
             {
-
                 wmplayer.close();
                 debugtext.Text="endgame";
                 timer1.Enabled = false;
@@ -150,8 +149,8 @@ namespace 資訊專題
             {
                 if (e.KeyCode == Keys.Space)
                 {
+                    meblockpicturemovement = "block";
                     timer4.Enabled = true;
-                    timer5.Enabled = false;
                     block = true;
                 }
                 if(block == false)
@@ -213,8 +212,8 @@ namespace 資訊專題
             {
                 if (e.KeyCode == Keys.Space)
                 {
-                    timer4.Enabled = false;
-                    timer5.Enabled = true;
+                    meblockpicturemovement = "reset";
+                    timer4.Enabled = true;
                 }
                 else if (e.KeyCode == Keys.Z)
                 {
@@ -238,7 +237,7 @@ namespace 資訊專題
                         boss.Left -= 10;
                         if(boss.Left < me.Left + me.Width)
                         {
-                        
+                            //TODO:攻擊
                         }
                     }
                 }
@@ -251,7 +250,7 @@ namespace 資訊專題
                         boss.Left += 10;
                         if (boss.Left + boss.Width > me.Left)
                         {
-                        
+                            //TODO:攻擊
                         }
                     }
                 }
@@ -273,44 +272,42 @@ namespace 資訊專題
 
         private void timer4_Tick(object sender, EventArgs e)
         {
-            //nowmeimage現在圖示編號
-            //block是否處於格擋
-            //meimage[方向編號,造型編號]
-            if(nowmeimage == -1)
+            /*
+            nowmeimage現在圖示編號
+            block是否處於格擋
+            meimages[方向編號,造型編號]
+            */
+            if (meblockpicturemovement == "block")
             {
-                nowmeimage = 0;
-            }
-            if(block)
-            {
-                if (nowmeimage < meimagecount)
+                if (nowmeimage == meimagecount-1)
+                {
+                    me.Image = meimages[memove, nowmeimage];
+                    timer4.Enabled = false;
+                }
+                else
                 {
                     me.Image = meimages[memove, nowmeimage];
                     nowmeimage += 1;
                 }
-                else
-                {
-                    timer4.Enabled = false;
-                }
             }
-        }
-
-        private void timer5_Tick(object sender, EventArgs e)
-        {
-            if (block)
+            else if (meblockpicturemovement == "reset")
             {
-                nowmeimage -= 1;
-                if (nowmeimage > 0)
+                if(nowmeimage == 3)
+                {
+                    nowmeimage = 2;
+                }
+                if (nowmeimage == 0)
+                {
+                    me.Image = meimages[memove, nowmeimage];
+                    timer4.Enabled = false;
+                    block = false;
+                }
+                else
                 {
                     me.Image = meimages[memove, nowmeimage];
                     nowmeimage -= 1;
                 }
-                else
-                {
-                    timer5.Enabled = false;
-                    block = false;
-
-                }
-            } 
+            }
         }
 
         /*視窗間傳值*/
