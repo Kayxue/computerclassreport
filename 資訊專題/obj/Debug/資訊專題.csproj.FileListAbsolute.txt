@@ -130,8 +130,11 @@ C:\Users\user\Desktop\computerclassreport\資訊專題\obj\Debug\資訊專題.pd
 \\Mac\Home\Downloads\computerclassreport\資訊專題\obj\Debug\資訊專題.csproj.CoreCompileInputs.cache
 \\Mac\Home\Downloads\computerclassreport\資訊專題\obj\Debug\資訊專題.pauseform.resources
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Users\user\Desktop\computerclassreport\資訊專題\obj\Debug\資訊專題.pauseform.resources
 C:\Users\user\Desktop\computerclassreport\資訊專題\obj\Debug\資訊專題.gameformboss.resources
 C:\Users\user\Desktop\computerclassreport\資訊專題\obj\Debug\資訊專題.gameformmain.resources
+=======
+>>>>>>> parent of c299013... 2020-06-23
 =======
 >>>>>>> parent of c299013... 2020-06-23
