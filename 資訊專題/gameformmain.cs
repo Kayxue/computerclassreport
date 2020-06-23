@@ -14,7 +14,7 @@ using WMPLib;
 
 namespace 資訊專題
 {
-    public partial class gameform : Form
+    public partial class gameformmain : Form
     {
         /*宣告變數*/
         int memove, bossmoveint, nowmeimage, meimagecount = 3, nowbossimage, bossimagecount = 3;
@@ -31,7 +31,7 @@ namespace 資訊專題
         Random random = new Random();
 
         /*初始化與視窗關閉*/
-        public gameform()
+        public gameformmain()
         {
             InitializeComponent();
             meattacksound.SoundLocation = Application.StartupPath + "\\";

@@ -45,13 +45,5 @@ namespace 資訊專題
                 gameformsize = value;
             }
         }
-
-        public Point setgameformbackgroundlocation
-        {
-            set
-            {
-                this.Location = value;
-            }
-        }
     }
 }

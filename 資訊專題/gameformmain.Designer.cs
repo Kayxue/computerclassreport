@@ -1,6 +1,6 @@
 ﻿namespace 資訊專題
 {
-    partial class gameform
+    partial class gameformmain
     {
         /// <summary>
         /// Required designer variable.
