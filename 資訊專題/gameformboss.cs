@@ -22,6 +22,8 @@ namespace 資訊專題
         {
             this.BackColor = Color.White;
             this.TransparencyKey = Color.White;
+            this.Location = x;
+            this.TopMost = true;
             boss.Top = this.Height - boss.Height - 100;
         }
 

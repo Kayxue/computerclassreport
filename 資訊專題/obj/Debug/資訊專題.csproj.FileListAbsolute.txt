@@ -104,7 +104,6 @@ C:\Users\user\Desktop\computerclassreport\資訊專題\obj\Debug\Interop.WMPLib.
 C:\Users\user\Desktop\computerclassreport\資訊專題\obj\Debug\資訊專題.csproj.ResolveComReference.cache
 C:\Users\user\Desktop\computerclassreport\資訊專題\obj\Debug\資訊專題.endform.resources
 C:\Users\user\Desktop\computerclassreport\資訊專題\obj\Debug\資訊專題.Form1.resources
-C:\Users\user\Desktop\computerclassreport\資訊專題\obj\Debug\資訊專題.gameform.resources
 C:\Users\user\Desktop\computerclassreport\資訊專題\obj\Debug\資訊專題.gameformbackground.resources
 C:\Users\user\Desktop\computerclassreport\資訊專題\obj\Debug\資訊專題.infoform.resources
 C:\Users\user\Desktop\computerclassreport\資訊專題\obj\Debug\資訊專題.Properties.Resources.resources
@@ -131,3 +130,5 @@ C:\Users\user\Desktop\computerclassreport\資訊專題\obj\Debug\資訊專題.pd
 \\Mac\Home\Downloads\computerclassreport\資訊專題\obj\Debug\資訊專題.csproj.CoreCompileInputs.cache
 \\Mac\Home\Downloads\computerclassreport\資訊專題\obj\Debug\資訊專題.pauseform.resources
 C:\Users\user\Desktop\computerclassreport\資訊專題\obj\Debug\資訊專題.pauseform.resources
+C:\Users\user\Desktop\computerclassreport\資訊專題\obj\Debug\資訊專題.gameformboss.resources
+C:\Users\user\Desktop\computerclassreport\資訊專題\obj\Debug\資訊專題.gameformmain.resources

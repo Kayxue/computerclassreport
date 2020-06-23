@@ -29,24 +29,36 @@
         private void InitializeComponent()
         {
             this.boss = new System.Windows.Forms.PictureBox();
+            this.bossmove = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.boss)).BeginInit();
             this.SuspendLayout();
             // 
             // boss
             // 
             this.boss.BackColor = System.Drawing.Color.Transparent;
-            this.boss.Location = new System.Drawing.Point(254, 76);
+            this.boss.Location = new System.Drawing.Point(753, 178);
             this.boss.Name = "boss";
             this.boss.Size = new System.Drawing.Size(292, 299);
             this.boss.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.boss.TabIndex = 9;
             this.boss.TabStop = false;
             // 
+            // bossmove
+            // 
+            this.bossmove.AutoSize = true;
+            this.bossmove.BackColor = System.Drawing.Color.Transparent;
+            this.bossmove.Location = new System.Drawing.Point(61, 86);
+            this.bossmove.Name = "bossmove";
+            this.bossmove.Size = new System.Drawing.Size(75, 18);
+            this.bossmove.TabIndex = 11;
+            this.bossmove.Text = "bossmove";
+            // 
             // gameformboss
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 600);
+            this.Controls.Add(this.bossmove);
             this.Controls.Add(this.boss);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "gameformboss";
@@ -55,11 +67,13 @@
             this.Load += new System.EventHandler(this.gameformboss_Load);
             ((System.ComponentModel.ISupportInitialize)(this.boss)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.PictureBox boss;
+        private System.Windows.Forms.Label bossmove;
     }
 }
