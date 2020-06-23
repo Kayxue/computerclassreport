@@ -58,23 +58,17 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="gameformmain.cs">
+    <Compile Include="gameform.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gameformmain.Designer.cs">
-      <DependentUpon>gameformmain.cs</DependentUpon>
+    <Compile Include="gameform.Designer.cs">
+      <DependentUpon>gameform.cs</DependentUpon>
     </Compile>
     <Compile Include="gameformbackground.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="gameformbackground.Designer.cs">
       <DependentUpon>gameformbackground.cs</DependentUpon>
-    </Compile>
-    <Compile Include="gameformboss.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="gameformboss.Designer.cs">
-      <DependentUpon>gameformboss.cs</DependentUpon>
     </Compile>
     <Compile Include="infoform.cs">
       <SubType>Form</SubType>
@@ -96,11 +90,8 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="gameformboss.resx">
-      <DependentUpon>gameformboss.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="gameformmain.resx">
-      <DependentUpon>gameformmain.cs</DependentUpon>
+    <EmbeddedResource Include="gameform.resx">
+      <DependentUpon>gameform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gameformbackground.resx">
       <DependentUpon>gameformbackground.cs</DependentUpon>
