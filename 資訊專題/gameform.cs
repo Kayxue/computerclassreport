@@ -194,7 +194,7 @@ namespace 資訊專題
                                 bosshearttext.Text = bossheart.Value.ToString();
                                 boss.Left = random.Next(5, this.Width - boss.Width - 10);
                             }
-                            meattacksound.Play();
+                            //meattacksound.Play();
                         }
                     }
                     if (e.KeyCode == Keys.P)
