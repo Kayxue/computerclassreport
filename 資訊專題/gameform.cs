@@ -17,14 +17,15 @@ namespace 資訊專題
     public partial class gameform : Form
     {
         /*宣告變數*/
-        int memove, bossmoveint, nowmeimage, meimagecount = 3, nowbossimage, bossimagecount = 3;
+        int memove, bossmoveint, nowmeimage, meimagecount = 5, nowbossimage, bossimagecount = 3;
         bool needagain, block, attack, resume;
-        string meblockpicturemovement = "block";
+        string meblockpicturemovement = "block", meattackmovement = "attack";
         Form1 form1 = new Form1();
         gameformbackground gameformbackground = new gameformbackground();
         Point x;
-        Image[,] meimages;
+        Image[,] meimagesblock;
         Image[,] bossimages;
+        Image[,] meimagesattack;
         WindowsMediaPlayer wmplayer = new WindowsMediaPlayer();
         SoundPlayer meattacksound = new SoundPlayer();
         PrivateFontCollection fontcollection = new PrivateFontCollection();
@@ -43,9 +44,9 @@ namespace 資訊專題
             this.Font = font;
             block = false;
             bossmove.Text = "left";
-            meimages = new Image[,] {
-                { Image.FromFile("主角 站立.png"), Image.FromFile("主角 格擋1.png"), Image.FromFile("主角 格擋2.png") },
-                { Image.FromFile("主角 站立1.png"), Image.FromFile("主角 格擋1(1).png"), Image.FromFile("主角 格擋2(1).png") } 
+            meimagesblock = new Image[,] {
+                { Image.FromFile("主角 站立.png"), Image.FromFile("主角 格擋1.png"), Image.FromFile("主角 格擋2.png") , Image.FromFile("主角 格擋3.png"), Image.FromFile("主角 格擋4.png")},
+                { Image.FromFile("主角 站立1.png"), Image.FromFile("主角 格擋1(1).png"), Image.FromFile("主角 格擋2(1).png"), Image.FromFile("主角 格擋3(1).png"), Image.FromFile("主角 格擋4(1).png") } 
             };
             bossimages = new Image[,] { 
                 { Image.FromFile("魔王 初始.png"), Image.FromFile("魔王 攻擊1.png"), Image.FromFile("魔王 攻擊2.png") }, 
@@ -60,7 +61,7 @@ namespace 資訊專題
             this.Location = x;
             this.BackColor = Color.White;
             this.TransparencyKey = this.BackColor;
-            me.Image = meimages[0,0];
+            me.Image = meimagesblock[0,0];
             boss.Image = bossimages[0, 0];
             myheart.Size = new Size(this.Width, myheart.Height);
             bossheart.Size = new Size(this.Width, myheart.Height);
@@ -161,7 +162,7 @@ namespace 資訊專題
                         {
                             me.Left -= 10;
                             memove = 1;
-                            me.Image = meimages[memove, 0];
+                            me.Image = meimagesblock[memove, 0];
                             block = false;
                         }
                     }
@@ -171,7 +172,7 @@ namespace 資訊專題
                         {
                             me.Left += 10;
                             memove = 0;
-                            me.Image = meimages[memove, 0];
+                            me.Image = meimagesblock[memove, 0];
                             block = false;
                         }
                     }
@@ -197,8 +198,8 @@ namespace 資訊專題
                             //meattacksound.Play();
                         }
                     }
-                    if (e.KeyCode == Keys.P)
-                    {
+                    if (e.KeyCode == Keys.P || e.KeyCode == Keys.Escape)
+                    { 
                         debugtext.Text = "gamepause";
                     }
                 }
@@ -275,36 +276,36 @@ namespace 資訊專題
             /*
             nowmeimage現在圖示編號
             block是否處於格擋
-            meimages[方向編號,造型編號]
+            meimagesblock[方向編號,造型編號]
             */
             if (meblockpicturemovement == "block")
             {
                 if (nowmeimage == meimagecount-1)
                 {
-                    me.Image = meimages[memove, nowmeimage];
+                    me.Image = meimagesblock[memove, nowmeimage];
                     timer4.Enabled = false;
                 }
                 else
                 {
-                    me.Image = meimages[memove, nowmeimage];
+                    me.Image = meimagesblock[memove, nowmeimage];
                     nowmeimage += 1;
                 }
             }
             else if (meblockpicturemovement == "reset")
             {
-                if(nowmeimage == 3)
+                if(nowmeimage == meimagecount)
                 {
-                    nowmeimage = 2;
+                    nowmeimage = (meimagecount-1);
                 }
                 if (nowmeimage == 0)
                 {
-                    me.Image = meimages[memove, nowmeimage];
+                    me.Image = meimagesblock[memove, nowmeimage];
                     timer4.Enabled = false;
                     block = false;
                 }
                 else
                 {
-                    me.Image = meimages[memove, nowmeimage];
+                    me.Image = meimagesblock[memove, nowmeimage];
                     nowmeimage -= 1;
                 }
             }
