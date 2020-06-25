@@ -38,9 +38,9 @@
             this.boss = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.bossmove = new System.Windows.Forms.Label();
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.timer5 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.me)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boss)).BeginInit();
             this.SuspendLayout();
@@ -140,6 +140,10 @@
             // 
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
+            // timer5
+            // 
+            this.timer5.Tick += new System.EventHandler(this.timer5_Tick);
+            // 
             // gameform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -182,8 +186,8 @@
         private System.Windows.Forms.PictureBox me;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label bossmove;
-        private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Timer timer4;
         private System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.Timer timer5;
     }
 }
