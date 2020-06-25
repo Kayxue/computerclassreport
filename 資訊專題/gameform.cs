@@ -71,6 +71,7 @@ namespace 資訊專題
             bosshearttext.Left = this.Width - bosshearttext.Width - 20;
             me.Top = this.Height - me.Height - 150;
             boss.Top = this.Height - boss.Height - 100;
+            boss.Left = this.Width - 20 - boss.Width;
             debugtext.Text = "startgame";
             bossmoveint = 0;
         }
