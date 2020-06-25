@@ -239,7 +239,7 @@ namespace 資訊專題
                         boss.Left -= 10;
                         if(boss.Left < me.Left + me.Width)
                         {
-                            
+                            //TODO:攻擊
                         }
                     }
                 }
