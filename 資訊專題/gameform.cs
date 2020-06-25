@@ -61,7 +61,7 @@ namespace 資訊專題
             this.Location = x;
             this.BackColor = Color.White;
             this.TransparencyKey = this.BackColor;
-            me.Image = meimagesblock[0,0];
+            me.Image = meimagesblock[0, 0];
             boss.Image = bossimages[0, 0];
             myheart.Size = new Size(this.Width, myheart.Height);
             bossheart.Size = new Size(this.Width, myheart.Height);

@@ -99,7 +99,7 @@
             // 
             // me
             // 
-            this.me.BackColor = System.Drawing.Color.Transparent;
+            this.me.BackColor = System.Drawing.Color.White;
             this.me.Location = new System.Drawing.Point(64, 266);
             this.me.Name = "me";
             this.me.Size = new System.Drawing.Size(119, 211);
