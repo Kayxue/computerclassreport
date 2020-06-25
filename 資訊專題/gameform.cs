@@ -17,7 +17,7 @@ namespace 資訊專題
     public partial class gameform : Form
     {
         /*宣告變數*/
-        int memove, bossmoveint, nowmeimage, meimagecount = 5, nowbossimage, bossimagecount = 3;
+        int memove, bossmoveint, nowmeimage, meimagecount = 5, nowbossimage, bossimagecount = 3;            
         bool needagain, block, attack, resume;
         string meblockpicturemovement = "block", meattackmovement = "attack", bossattackmovement = "attack";
         Form1 form1 = new Form1();
