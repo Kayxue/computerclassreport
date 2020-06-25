@@ -35,76 +35,76 @@ namespace 資訊專題
         public gameform()
         {
             InitializeComponent();
-            meattacksound.SoundLocation = Application.StartupPath + "\\";               //載入音樂
-            this.KeyPreview = true;                                                     //讓form優先接受鍵盤按下事件
-            myhearttext.Text = myheart.Maximum.ToString();                              //設定我方血量
-            bosshearttext.Text = bossheart.Maximum.ToString();                          //設定boss血量
-            fontcollection.AddFontFile(Application.StartupPath + "\\新特明體.TTC");     //將自備字體載入私有字體集
-            Font font = new Font(fontcollection.Families[0], 20);                       //建立字體物件
-            this.Font = font;                                                           //設定此Form字體
-            block = false;                                                              //設定現在不是格擋狀態
-            bossmove.Text = "left";                                                     //設定敵方向左移動
+            meattacksound.SoundLocation = Application.StartupPath + "\\";              
+            this.KeyPreview = true;                                                    
+            myhearttext.Text = myheart.Maximum.ToString();                              
+            bosshearttext.Text = bossheart.Maximum.ToString();                          
+            fontcollection.AddFontFile(Application.StartupPath + "\\新特明體.TTC");     
+            Font font = new Font(fontcollection.Families[0], 20);                       
+            this.Font = font;                                                           
+            block = false;                                                              
+            bossmove.Text = "left";                                                     
             meimagesblock = new Image[,] {
                 { Image.FromFile("主角 站立.png"), Image.FromFile("主角 格擋1.png"), Image.FromFile("主角 格擋2.png") , Image.FromFile("主角 格擋3.png"), Image.FromFile("主角 格擋4.png")},
                 { Image.FromFile("主角 站立1.png"), Image.FromFile("主角 格擋1(1).png"), Image.FromFile("主角 格擋2(1).png"), Image.FromFile("主角 格擋3(1).png"), Image.FromFile("主角 格擋4(1).png") } 
-            };                                                                          //載入我方角色圖片
+            };                                                                          
             bossimages = new Image[,] { 
                 { Image.FromFile("魔王 初始.png"), Image.FromFile("魔王 攻擊1.png"), Image.FromFile("魔王 攻擊2.png") }, 
                 { Image.FromFile("魔王 初始(1).png"), Image.FromFile("魔王 攻擊1(1).png"), Image.FromFile("魔王 攻擊2(1).png") } 
-            };                                                                          //載入敵方角色圖片
-            nowmeimage = 0;                                                             //我方造型設定顯示第0張
-            nowbossimage = 0;                                                           //敵方造型設定顯示第0張
-            resume = false;                                                             //設定遊戲是視窗開啟後要開始不是從結束暫停後要開始
+            };                                                                          
+            nowmeimage = 0;                                                             
+            nowbossimage = 0;                                                           
+            resume = false;                                                             
         }
 
         private void gameform_Load(object sender, EventArgs e)
         {
-            this.Location = x;                                              //設定視窗座標
-            this.BackColor = Color.White;                                   //設定視窗背景
-            this.TransparencyKey = this.BackColor;                          //視窗與角色透明
-            me.Image = meimagesblock[0, 0];                                 //設定我方造型
-            boss.Image = bossimages[0, 0];                                  //設定敵方造型
-            myheart.Size = new Size(this.Width, myheart.Height);            //重新設定我方血條長度
-            bossheart.Size = new Size(this.Width, myheart.Height);          //重新設定敵方血條長度
-            myheart.Top = this.Height - myheart.Height;                     //重新設定我方血條在視窗中位置
-            myhearttext.Left = this.Width - myhearttext.Width - 20;         //重新設定我方血量顯示位置（X軸）
-            myhearttext.Top = this.Height - 110 - myhearttext.Height;       //重新設定我方血量顯示位置（Y軸）
-            bosshearttext.Left = this.Width - bosshearttext.Width - 20;     //重新設定敵方血量顯示位置（X軸）
-            me.Top = this.Height - me.Height - 150;                         //重新設定我方顯示位置
-            boss.Top = this.Height - boss.Height - 100;                     //重新設定敵方顯示位置（Y軸）
-            boss.Left = this.Width - 20 - boss.Width;                       //重新設定敵方顯示位置（X軸）
-            bossmoveint = 0;                                                //設定目前敵方移動方向
-            debugtext.Text = "startgame";                                   //設定遊戲狀態為開始
+            this.Location = x;                                              
+            this.BackColor = Color.White;                                   
+            this.TransparencyKey = this.BackColor;                          
+            me.Image = meimagesblock[0, 0];                                 
+            boss.Image = bossimages[0, 0];                                  
+            myheart.Size = new Size(this.Width, myheart.Height);            
+            bossheart.Size = new Size(this.Width, myheart.Height);          
+            myheart.Top = this.Height - myheart.Height;                     
+            myhearttext.Left = this.Width - myhearttext.Width - 20;         
+            myhearttext.Top = this.Height - 110 - myhearttext.Height;       
+            bosshearttext.Left = this.Width - bosshearttext.Width - 20;     
+            me.Top = this.Height - me.Height - 150;                         
+            boss.Top = this.Height - boss.Height - 100;                     
+            boss.Left = this.Width - 20 - boss.Width;                       
+            bossmoveint = 0;                                                
+            debugtext.Text = "startgame";                                   
         }
 
         private void gameform_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (needagain == false)                                         //如果不再玩一次
+            if (needagain == false)                                         
             {
-                form1.Visible = true;                                       //form1顯示
-                gameformbackground.Close();                                 //背景圖示窗關閉
-                wmplayer.close();                                           //關閉背景音樂播放器
-                meattacksound.Dispose();                                    //摧毀我方攻擊音效播放物件
+                form1.Visible = true;                                       
+                gameformbackground.Close();                                 
+                wmplayer.close();                                           
+                meattacksound.Dispose();                                    
             }
         }
 
         /*遊戲監聽器*/
         private void debugtext_TextChanged(object sender, EventArgs e)
         {
-            if (debugtext.Text == "startgame")                                      //若遊戲狀態為開始
+            if (debugtext.Text == "startgame")                                      
             {
-                if(resume == false)                                                 //若不是從暫停中繼續
+                if(resume == false)                                                 
                 {
-                    wmplayer.URL = Application.StartupPath + "\\遊戲中背景音樂.wav";//設定播放音檔路徑並播放
-                    wmplayer.settings.setMode("loop", true);                        //設定播放模式
+                    wmplayer.URL = Application.StartupPath + "\\遊戲中背景音樂.wav";
+                    wmplayer.settings.setMode("loop", true);                        
                 }
-                else                                                                //若從暫停中繼續
+                else                                                                
                 {
-                    wmplayer.controls.play();                                       //純粹繼續播放音樂，不用再創造播放器
+                    wmplayer.controls.play();                                       
                 }
-                this.TopMost = true;                                                //設定視窗常駐本程式最上層
-                timer1.Enabled = true;                                              //敵方偵測是否需切換方向計時器啟動
-                timer3.Enabled = true;                                              //敵方移動計時器啟動
+                this.TopMost = true;                                                
+                timer1.Enabled = true;                                              
+                timer3.Enabled = true;                                              
             }
             else if (debugtext.Text == "gamepause")
             {
