@@ -42,6 +42,8 @@
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.timer5 = new System.Windows.Forms.Timer(this.components);
             this.timer6 = new System.Windows.Forms.Timer(this.components);
+            this.timer7 = new System.Windows.Forms.Timer(this.components);
+            this.timer8 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.me)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boss)).BeginInit();
             this.SuspendLayout();
@@ -52,7 +54,7 @@
             this.debugtext.Location = new System.Drawing.Point(61, 44);
             this.debugtext.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.debugtext.Name = "debugtext";
-            this.debugtext.Size = new System.Drawing.Size(80, 16);
+            this.debugtext.Size = new System.Drawing.Size(99, 20);
             this.debugtext.TabIndex = 2;
             this.debugtext.Text = "debugtext";
             this.debugtext.Visible = false;
@@ -83,7 +85,7 @@
             this.bosshearttext.Location = new System.Drawing.Point(1006, 44);
             this.bosshearttext.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.bosshearttext.Name = "bosshearttext";
-            this.bosshearttext.Size = new System.Drawing.Size(56, 16);
+            this.bosshearttext.Size = new System.Drawing.Size(69, 20);
             this.bosshearttext.TabIndex = 5;
             this.bosshearttext.Text = "label1";
             // 
@@ -94,7 +96,7 @@
             this.myhearttext.Location = new System.Drawing.Point(1006, 539);
             this.myhearttext.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.myhearttext.Name = "myhearttext";
-            this.myhearttext.Size = new System.Drawing.Size(56, 16);
+            this.myhearttext.Size = new System.Drawing.Size(69, 20);
             this.myhearttext.TabIndex = 6;
             this.myhearttext.Text = "label2";
             // 
@@ -104,7 +106,7 @@
             this.me.Location = new System.Drawing.Point(64, 266);
             this.me.Name = "me";
             this.me.Size = new System.Drawing.Size(119, 211);
-            this.me.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.me.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.me.TabIndex = 9;
             this.me.TabStop = false;
             // 
@@ -128,13 +130,13 @@
             this.bossmove.BackColor = System.Drawing.Color.Transparent;
             this.bossmove.Location = new System.Drawing.Point(61, 86);
             this.bossmove.Name = "bossmove";
-            this.bossmove.Size = new System.Drawing.Size(72, 16);
+            this.bossmove.Size = new System.Drawing.Size(89, 20);
             this.bossmove.TabIndex = 10;
             this.bossmove.Text = "bossmove";
             // 
             // timer4
             // 
-            this.timer4.Interval = 30;
+            this.timer4.Interval = 10;
             this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
             // 
             // timer3
@@ -150,9 +152,18 @@
             this.timer6.Interval = 10;
             this.timer6.Tick += new System.EventHandler(this.timer6_Tick);
             // 
+            // timer7
+            // 
+            this.timer7.Interval = 2000;
+            this.timer7.Tick += new System.EventHandler(this.timer7_Tick);
+            // 
+            // timer8
+            // 
+            this.timer8.Tick += new System.EventHandler(this.timer8_Tick);
+            // 
             // gameform
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1067, 600);
@@ -196,5 +207,7 @@
         private System.Windows.Forms.Timer timer3;
         private System.Windows.Forms.Timer timer5;
         private System.Windows.Forms.Timer timer6;
+        private System.Windows.Forms.Timer timer7;
+        private System.Windows.Forms.Timer timer8;
     }
 }

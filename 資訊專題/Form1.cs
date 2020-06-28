@@ -47,7 +47,6 @@ namespace 資訊專題
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-
         }
 
         private void Form1_VisibleChanged(object sender, EventArgs e)

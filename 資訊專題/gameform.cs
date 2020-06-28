@@ -17,8 +17,11 @@ namespace 資訊專題
     public partial class gameform : Form
     {
         /*宣告變數*/
-        int memove, bossmoveint, nowmeimage, meimagecount = 5, nowbossimage, bossimagecount = 3, nowmeattackimage, meattackimagecount = 3;            
-        bool needagain, block, attack, resume;
+        int memove, bossmoveint, nowmeimage,
+            meimagecount = 5, nowbossimage, bossimagecount = 3,
+            nowmeattackimage, meattackimagecount = 3, nowwalkimage = 0,
+            mewalkwidth = 0, menormalwidth = 0, meblockheight = 0, menormalheight = 0;
+        bool needagain, block, attack, resume, ifwin, iffreeze, startwalk;
         string meblockpicturemovement = "block", meattackmovement = "attack", bossattackmovement = "attack";
         Form1 form1 = new Form1();
         gameformbackground gameformbackground = new gameformbackground();
@@ -26,6 +29,7 @@ namespace 資訊專題
         Image[,] meimagesblock;
         Image[,] bossimages;
         Image[,] meimagesattack;
+        Image[,] mewalkimages;
         WindowsMediaPlayer wmplayer = new WindowsMediaPlayer();
         SoundPlayer meattacksound = new SoundPlayer();
         PrivateFontCollection fontcollection = new PrivateFontCollection();
@@ -55,11 +59,20 @@ namespace 資訊專題
             bossimages = new Image[,] { 
                 { Image.FromFile("魔王 初始.png"), Image.FromFile("魔王 攻擊1.png"), Image.FromFile("魔王 攻擊2.png") }, 
                 { Image.FromFile("魔王 初始(1).png"), Image.FromFile("魔王 攻擊1(1).png"), Image.FromFile("魔王 攻擊2(1).png") } 
-            };                                                                          
+            };
+            mewalkimages = new Image[,] {
+                { Image.FromFile("主角 站立.png"),Image.FromFile("21.png"),Image.FromFile("31.png"),Image.FromFile("41.png"),Image.FromFile("51.png"),Image.FromFile("61.png"),Image.FromFile("71.png")},
+                { Image.FromFile("主角 站立1.png"),Image.FromFile("2.png"),Image.FromFile("3.png"),Image.FromFile("4.png"),Image.FromFile("5.png"),Image.FromFile("6.png"),Image.FromFile("7.png")}
+            };
             nowmeimage = 0;                                                             
             nowbossimage = 0;
             nowmeattackimage = 0;
             resume = false;
+            startwalk = false;
+            mewalkwidth = me.Width + 150;
+            menormalwidth = me.Width;
+            meblockheight = me.Height + 40;
+            menormalheight = me.Height;
         }
 
         private void gameform_Load(object sender, EventArgs e)
@@ -92,6 +105,7 @@ namespace 資訊專題
                 meattacksound.Dispose();                                    
             }
         }
+
 
         /*遊戲監聽器*/
         private void debugtext_TextChanged(object sender, EventArgs e)
@@ -145,6 +159,14 @@ namespace 資訊專題
                 timer1.Enabled = false;
                 endform endform = new endform(form1, this);
                 endform.getfromlocation = x;
+                if (ifwin)
+                {
+                    endform.getwinorlose = "win";
+                }
+                else
+                {
+                    endform.getwinorlose = "lose";
+                }
                 endform.TopMost = true;
                 endform.ShowDialog();
             }
@@ -176,8 +198,9 @@ namespace 資訊專題
                         {
                             me.Left -= 10;
                             memove = 1;
-                            me.Image = meimagesblock[memove, 0];
                             block = false;
+                            startwalk = true;
+                            timer8.Enabled = true;
                         }
                     }
                     if (e.KeyCode == Keys.Right)
@@ -186,8 +209,9 @@ namespace 資訊專題
                         {
                             me.Left += 10;
                             memove = 0;
-                            me.Image = meimagesblock[memove, 0];
                             block = false;
+                            startwalk = true;
+                            timer8.Enabled = true;
                         }
                     }
                     if (e.KeyCode == Keys.Z)
@@ -197,17 +221,16 @@ namespace 資訊專題
                             block = false;
                             attack = true;
 
-                            if (bossheart.Value - 10 > 0)
+                            if (bossheart.Value - 1 > 0)
                             {
                                 meattackmovement = "attack";
                                 timer6.Enabled = true;
                             }
                             else
                             {
-                                bossheart.Maximum += 100;
-                                bossheart.Value = bossheart.Maximum;
-                                bosshearttext.Text = bossheart.Value.ToString();
-                                boss.Left = random.Next(5, this.Width - boss.Width - 10);
+                                ifwin = true;
+                                debugtext.Text = "endgame";
+                                
                             }
                             //meattacksound.Play();
                         }
@@ -236,6 +259,17 @@ namespace 資訊專題
                 {
                     meattackmovement = "reset";
                     timer6.Enabled = true;
+                }
+                if(attack==false && block == false)
+                {
+                    if (e.KeyCode == Keys.Left)
+                    {
+                        startwalk = false;
+                    }
+                    else if(e.KeyCode == Keys.Right)
+                    {
+                        startwalk = false;
+                    }
                 }
             }
         }
@@ -310,8 +344,14 @@ namespace 資訊專題
                 }
                 else
                 {
+                    if (nowmeimage >= 2)
+                    {
+                        me.Size = new Size(me.Width, meblockheight);
+                        me.Top=this.Height - me.Height - 150;
+                    }
                     me.Image = meimagesblock[memove, nowmeimage];
                     nowmeimage += 1;
+                    
                 }
             }
             else if (meblockpicturemovement == "reset")
@@ -328,6 +368,11 @@ namespace 資訊專題
                 }
                 else
                 {
+                    if(nowmeimage < 1)
+                    {
+                        me.Size = new Size(me.Width, menormalheight);
+                        me.Top = this.Height - me.Height - 150;
+                    }
                     me.Image = meimagesblock[memove, nowmeimage];
                     nowmeimage -= 1;
                 }
@@ -347,10 +392,16 @@ namespace 資訊專題
                         myheart.Value -= 10;
                         myhearttext.Text = myheart.Value.ToString();
                     }
+                    else
+                    {
+                        iffreeze = true;
+                    }
                         
                     if (myheart.Value == 0)
                     {
+                        ifwin = false;
                         debugtext.Text = "endgame";
+                        
                     }
                 }
                 else
@@ -369,8 +420,15 @@ namespace 資訊專題
                 {
                     boss.Image = bossimages[bossmoveint, nowbossimage];
                     timer5.Enabled = false;
-                    timer1.Enabled = true;
-                    timer3.Enabled = true;
+                    if (iffreeze)
+                    {
+                        timer7.Enabled = true;
+                    }
+                    else
+                    {
+                        timer1.Enabled = true;
+                        timer3.Enabled = true;
+                    }
                 }
                 else
                 {
@@ -388,7 +446,7 @@ namespace 資訊專題
                 {
                     me.Image = meimagesattack[memove, nowmeattackimage];
                     timer6.Enabled = false;
-                    bossheart.Value -= 10;
+                    bossheart.Value -= 1;
                     bosshearttext.Text = bossheart.Value.ToString();
                 }
                 else
@@ -413,6 +471,51 @@ namespace 資訊專題
                 {
                     me.Image = meimagesattack[memove, nowmeattackimage];
                     nowmeattackimage -= 1;
+                }
+            }
+        }
+        
+        private void timer7_Tick(object sender, EventArgs e)
+        {
+            if (iffreeze)
+            {
+                iffreeze = false;
+            }
+            else
+            {
+                timer1.Enabled = true;
+                timer3.Enabled = true;
+                timer7.Enabled = false;
+            }
+        }
+
+        private void timer8_Tick(object sender, EventArgs e)
+        {
+            if (startwalk)
+            {
+                if(nowwalkimage >= 6)
+                {
+                    nowwalkimage = 2;
+                }
+                nowwalkimage += 1;
+                if(nowwalkimage >= 1)
+                {
+                    me.Size = new Size(mewalkwidth, me.Height);
+                }
+                me.Image = mewalkimages[memove, nowwalkimage];
+
+            }
+            else
+            {
+                if(nowwalkimage > 0)
+                {
+                    nowwalkimage -= 1;
+                    me.Image = mewalkimages[memove, nowwalkimage];
+                }
+                else
+                {
+                    me.Size = new Size(menormalwidth, me.Height);
+                    timer8.Enabled = false;
                 }
             }
         }

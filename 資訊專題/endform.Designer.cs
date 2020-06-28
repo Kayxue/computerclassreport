@@ -28,20 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.debugtext = new System.Windows.Forms.Label();
             this.again = new System.Windows.Forms.Button();
             this.backtomenu = new System.Windows.Forms.Button();
+            this.winorlose = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // debugtext
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(421, 195);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "分數：";
+            this.debugtext.AutoSize = true;
+            this.debugtext.Location = new System.Drawing.Point(13, 9);
+            this.debugtext.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.debugtext.Name = "debugtext";
+            this.debugtext.Size = new System.Drawing.Size(80, 16);
+            this.debugtext.TabIndex = 0;
+            this.debugtext.Text = "debugtext";
+            this.debugtext.TextChanged += new System.EventHandler(this.debugtext_TextChanged);
             // 
             // again
             // 
@@ -65,14 +67,24 @@
             this.backtomenu.UseVisualStyleBackColor = true;
             this.backtomenu.Click += new System.EventHandler(this.backtomenu_Click);
             // 
+            // winorlose
+            // 
+            this.winorlose.AutoSize = true;
+            this.winorlose.Location = new System.Drawing.Point(477, 256);
+            this.winorlose.Name = "winorlose";
+            this.winorlose.Size = new System.Drawing.Size(56, 16);
+            this.winorlose.TabIndex = 4;
+            this.winorlose.Text = "label1";
+            // 
             // endform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 600);
+            this.Controls.Add(this.winorlose);
             this.Controls.Add(this.backtomenu);
             this.Controls.Add(this.again);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.debugtext);
             this.Font = new System.Drawing.Font("標楷體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -90,8 +102,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label debugtext;
         private System.Windows.Forms.Button again;
         private System.Windows.Forms.Button backtomenu;
+        private System.Windows.Forms.Label winorlose;
     }
 }

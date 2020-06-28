@@ -75,6 +75,24 @@ namespace 資訊專題
             }
         }
 
-        
+        public string getwinorlose
+        {
+            set
+            {
+                debugtext.Text = value;
+            }
+        }
+
+        private void debugtext_TextChanged(object sender, EventArgs e)
+        {
+            if(debugtext.Text == "win")
+            {
+                winorlose.Text = "你贏了！";
+            }
+            else if (debugtext.Text == "lose")
+            {
+                winorlose.Text = "你輸了！";
+            }
+        }
     }
 }
