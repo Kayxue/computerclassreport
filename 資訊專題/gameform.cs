@@ -17,7 +17,7 @@ namespace 資訊專題
     public partial class gameform : Form
     {
         /*宣告變數*/
-        int memove, bossmoveint, nowmeimage, meimagecount = 5, nowbossimage, bossimagecount = 3;            
+        int memove, bossmoveint, nowmeimage, meimagecount = 5, nowbossimage, bossimagecount = 3, nowmeattackimage, meattackimagecount = 3;            
         bool needagain, block, attack, resume;
         string meblockpicturemovement = "block", meattackmovement = "attack", bossattackmovement = "attack";
         Form1 form1 = new Form1();
@@ -47,14 +47,19 @@ namespace 資訊專題
             meimagesblock = new Image[,] {
                 { Image.FromFile("主角 站立.png"), Image.FromFile("主角 格擋1.png"), Image.FromFile("主角 格擋2.png") , Image.FromFile("主角 格擋3.png"), Image.FromFile("主角 格擋4.png")},
                 { Image.FromFile("主角 站立1.png"), Image.FromFile("主角 格擋1(1).png"), Image.FromFile("主角 格擋2(1).png"), Image.FromFile("主角 格擋3(1).png"), Image.FromFile("主角 格擋4(1).png") } 
-            };                                                                          
+            };
+            meimagesattack = new Image[,] { 
+                { Image.FromFile("主角 站立.png"), Image.FromFile("主角 攻擊1.png"), Image.FromFile("主角 攻擊2.png") }, 
+                { Image.FromFile("主角 站立1.png"), Image.FromFile("主角 攻擊1(1).png"), Image.FromFile("主角 攻擊2(1).png") } 
+            };
             bossimages = new Image[,] { 
                 { Image.FromFile("魔王 初始.png"), Image.FromFile("魔王 攻擊1.png"), Image.FromFile("魔王 攻擊2.png") }, 
                 { Image.FromFile("魔王 初始(1).png"), Image.FromFile("魔王 攻擊1(1).png"), Image.FromFile("魔王 攻擊2(1).png") } 
             };                                                                          
             nowmeimage = 0;                                                             
-            nowbossimage = 0;                                                           
-            resume = false;                                                             
+            nowbossimage = 0;
+            nowmeattackimage = 0;
+            resume = false;
         }
 
         private void gameform_Load(object sender, EventArgs e)
@@ -140,6 +145,7 @@ namespace 資訊專題
                 timer1.Enabled = false;
                 endform endform = new endform(form1, this);
                 endform.getfromlocation = x;
+                endform.TopMost = true;
                 endform.ShowDialog();
             }
         }
@@ -149,14 +155,21 @@ namespace 資訊專題
         {
             if(debugtext.Text == "startgame")
             {
-                if (e.KeyCode == Keys.Space)
+                if (e.KeyCode == Keys.Space && attack == false)
                 {
                     meblockpicturemovement = "block";
                     timer4.Enabled = true;
                     block = true;
                 }
-                if(block == false)
+                if(block == false && attack == false)
                 {
+                    if(e.KeyCode == Keys.V)
+                    {
+                        bossattackmovement = "attack";
+                        timer5.Enabled = true;
+                        timer3.Enabled = false;
+                        timer1.Enabled = false;
+                    }
                     if (e.KeyCode == Keys.Left)
                     {
                         if (me.Left - 10 >= 0)
@@ -186,8 +199,8 @@ namespace 資訊專題
 
                             if (bossheart.Value - 10 > 0)
                             {
-                                bossheart.Value -= 10;
-                                bosshearttext.Text = bossheart.Value.ToString();
+                                meattackmovement = "attack";
+                                timer6.Enabled = true;
                             }
                             else
                             {
@@ -207,6 +220,8 @@ namespace 資訊專題
             }
         }
 
+        
+
         /*結束格檔與攻擊*/
         private void gameform_KeyUp(object sender, KeyEventArgs e)
         {
@@ -219,7 +234,8 @@ namespace 資訊專題
                 }
                 else if (e.KeyCode == Keys.Z)
                 {
-                    attack = false;
+                    meattackmovement = "reset";
+                    timer6.Enabled = true;
                 }
             }
         }
@@ -239,7 +255,10 @@ namespace 資訊專題
                         boss.Left -= 10;
                         if(boss.Left < me.Left + me.Width)
                         {
-                            //TODO:攻擊
+                            bossattackmovement = "attack";
+                            timer5.Enabled = true;
+                            timer3.Enabled = false;
+                            timer1.Enabled = false;
                         }
                     }
                 }
@@ -252,7 +271,10 @@ namespace 資訊專題
                         boss.Left += 10;
                         if (boss.Left + boss.Width > me.Left)
                         {
-                            //TODO:攻擊
+                            bossattackmovement = "attack";
+                            timer5.Enabled = true;
+                            timer3.Enabled = false;
+                            timer1.Enabled = false;
                         }
                     }
                 }
@@ -316,11 +338,82 @@ namespace 資訊專題
         {
             if (bossattackmovement == "attack")
             {
-
+                if (nowbossimage == bossimagecount - 1)
+                {
+                    boss.Image = bossimages[bossmoveint, nowbossimage];
+                    bossattackmovement = "reset";
+                    if (!block)
+                    {
+                        myheart.Value -= 10;
+                        myhearttext.Text = myheart.Value.ToString();
+                    }
+                        
+                    if (myheart.Value == 0)
+                    {
+                        debugtext.Text = "endgame";
+                    }
+                }
+                else
+                {
+                    boss.Image = bossimages[bossmoveint, nowbossimage];
+                    nowbossimage += 1;
+                }
             }
-            else
+            else if (bossattackmovement == "reset")
             {
+                if (nowbossimage == bossimagecount)
+                {
+                    nowbossimage = (bossimagecount - 1);
+                }
+                if (nowbossimage == 0)
+                {
+                    boss.Image = bossimages[bossmoveint, nowbossimage];
+                    timer5.Enabled = false;
+                    timer1.Enabled = true;
+                    timer3.Enabled = true;
+                }
+                else
+                {
+                    boss.Image = bossimages[bossmoveint, nowbossimage];
+                    nowbossimage -= 1;
+                }
+            }
+        }
 
+        private void timer6_Tick(object sender, EventArgs e)
+        {
+            if (meattackmovement == "attack")
+            {
+                if (nowmeattackimage == meattackimagecount - 1)
+                {
+                    me.Image = meimagesattack[memove, nowmeattackimage];
+                    timer6.Enabled = false;
+                    bossheart.Value -= 10;
+                    bosshearttext.Text = bossheart.Value.ToString();
+                }
+                else
+                {
+                    me.Image = meimagesattack[memove, nowmeattackimage];
+                    nowmeattackimage += 1;
+                }
+            }
+            else if (meattackmovement == "reset")
+            {
+                if (nowmeattackimage == meattackimagecount)
+                {
+                    nowmeattackimage = (meattackimagecount - 1);
+                }
+                if (nowmeattackimage == 0)
+                {
+                    me.Image = meimagesattack[memove, nowmeattackimage];
+                    timer6.Enabled = false;
+                    attack = false;
+                }
+                else
+                {
+                    me.Image = meimagesattack[memove, nowmeattackimage];
+                    nowmeattackimage -= 1;
+                }
             }
         }
 
