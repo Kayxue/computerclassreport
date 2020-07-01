@@ -34,18 +34,14 @@
             this.bossheart = new System.Windows.Forms.ProgressBar();
             this.bosshearttext = new System.Windows.Forms.Label();
             this.myhearttext = new System.Windows.Forms.Label();
-            this.me = new System.Windows.Forms.PictureBox();
-            this.boss = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.bossmove = new System.Windows.Forms.Label();
             this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.timer5 = new System.Windows.Forms.Timer(this.components);
             this.timer6 = new System.Windows.Forms.Timer(this.components);
-            this.timer7 = new System.Windows.Forms.Timer(this.components);
             this.timer8 = new System.Windows.Forms.Timer(this.components);
+            this.me = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.me)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boss)).BeginInit();
             this.SuspendLayout();
             // 
             // debugtext
@@ -54,7 +50,7 @@
             this.debugtext.Location = new System.Drawing.Point(61, 44);
             this.debugtext.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.debugtext.Name = "debugtext";
-            this.debugtext.Size = new System.Drawing.Size(99, 20);
+            this.debugtext.Size = new System.Drawing.Size(80, 16);
             this.debugtext.TabIndex = 2;
             this.debugtext.Text = "debugtext";
             this.debugtext.Visible = false;
@@ -85,7 +81,7 @@
             this.bosshearttext.Location = new System.Drawing.Point(1006, 44);
             this.bosshearttext.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.bosshearttext.Name = "bosshearttext";
-            this.bosshearttext.Size = new System.Drawing.Size(69, 20);
+            this.bosshearttext.Size = new System.Drawing.Size(56, 16);
             this.bosshearttext.TabIndex = 5;
             this.bosshearttext.Text = "label1";
             // 
@@ -96,80 +92,43 @@
             this.myhearttext.Location = new System.Drawing.Point(1006, 539);
             this.myhearttext.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.myhearttext.Name = "myhearttext";
-            this.myhearttext.Size = new System.Drawing.Size(69, 20);
+            this.myhearttext.Size = new System.Drawing.Size(56, 16);
             this.myhearttext.TabIndex = 6;
             this.myhearttext.Text = "label2";
-            // 
-            // me
-            // 
-            this.me.BackColor = System.Drawing.Color.White;
-            this.me.Location = new System.Drawing.Point(64, 266);
-            this.me.Name = "me";
-            this.me.Size = new System.Drawing.Size(119, 211);
-            this.me.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.me.TabIndex = 9;
-            this.me.TabStop = false;
-            // 
-            // boss
-            // 
-            this.boss.BackColor = System.Drawing.Color.Transparent;
-            this.boss.Location = new System.Drawing.Point(753, 178);
-            this.boss.Name = "boss";
-            this.boss.Size = new System.Drawing.Size(292, 299);
-            this.boss.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.boss.TabIndex = 8;
-            this.boss.TabStop = false;
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // bossmove
-            // 
-            this.bossmove.AutoSize = true;
-            this.bossmove.BackColor = System.Drawing.Color.Transparent;
-            this.bossmove.Location = new System.Drawing.Point(61, 86);
-            this.bossmove.Name = "bossmove";
-            this.bossmove.Size = new System.Drawing.Size(89, 20);
-            this.bossmove.TabIndex = 10;
-            this.bossmove.Text = "bossmove";
             // 
             // timer4
             // 
             this.timer4.Interval = 10;
             this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
             // 
-            // timer3
-            // 
-            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
-            // 
-            // timer5
-            // 
-            this.timer5.Tick += new System.EventHandler(this.timer5_Tick);
-            // 
             // timer6
             // 
             this.timer6.Interval = 10;
             this.timer6.Tick += new System.EventHandler(this.timer6_Tick);
             // 
-            // timer7
-            // 
-            this.timer7.Interval = 2000;
-            this.timer7.Tick += new System.EventHandler(this.timer7_Tick);
-            // 
             // timer8
             // 
+            this.timer8.Interval = 50;
             this.timer8.Tick += new System.EventHandler(this.timer8_Tick);
+            // 
+            // me
+            // 
+            this.me.BackColor = System.Drawing.Color.Transparent;
+            this.me.Location = new System.Drawing.Point(64, 266);
+            this.me.Name = "me";
+            this.me.Size = new System.Drawing.Size(119, 211);
+            this.me.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.me.TabIndex = 9;
+            this.me.TabStop = false;
+            this.me.LocationChanged += new System.EventHandler(this.me_LocationChanged);
             // 
             // gameform
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1067, 600);
-            this.Controls.Add(this.bossmove);
             this.Controls.Add(this.me);
-            this.Controls.Add(this.boss);
             this.Controls.Add(this.myhearttext);
             this.Controls.Add(this.bosshearttext);
             this.Controls.Add(this.bossheart);
@@ -181,13 +140,13 @@
             this.Name = "gameform";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "勇者鬥惡龍";
+            this.TransparencyKey = System.Drawing.Color.White;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.gameform_FormClosed);
             this.Load += new System.EventHandler(this.gameform_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gameform_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.gameform_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.me)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boss)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,15 +158,12 @@
         private System.Windows.Forms.ProgressBar bossheart;
         private System.Windows.Forms.Label bosshearttext;
         private System.Windows.Forms.Label myhearttext;
-        private System.Windows.Forms.PictureBox boss;
         private System.Windows.Forms.PictureBox me;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label bossmove;
         private System.Windows.Forms.Timer timer4;
         private System.Windows.Forms.Timer timer3;
         private System.Windows.Forms.Timer timer5;
         private System.Windows.Forms.Timer timer6;
-        private System.Windows.Forms.Timer timer7;
         private System.Windows.Forms.Timer timer8;
     }
 }

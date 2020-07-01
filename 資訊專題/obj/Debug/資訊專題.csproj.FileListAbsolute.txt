@@ -88,7 +88,6 @@ C:\Users\Kay\Desktop\C#\computerclassreport\資訊專題\obj\Debug\資訊專題.
 C:\Users\Kay\Desktop\C#\computerclassreport\資訊專題\obj\Debug\資訊專題.endform.resources
 C:\Users\Kay\Desktop\C#\computerclassreport\資訊專題\obj\Debug\資訊專題.Form1.resources
 C:\Users\Kay\Desktop\C#\computerclassreport\資訊專題\obj\Debug\資訊專題.gameform.resources
-C:\Users\Kay\Desktop\C#\computerclassreport\資訊專題\obj\Debug\資訊專題.gameformbackground.resources
 C:\Users\Kay\Desktop\C#\computerclassreport\資訊專題\obj\Debug\資訊專題.infoform.resources
 C:\Users\Kay\Desktop\C#\computerclassreport\資訊專題\obj\Debug\資訊專題.Properties.Resources.resources
 C:\Users\Kay\Desktop\C#\computerclassreport\資訊專題\obj\Debug\資訊專題.csproj.GenerateResource.cache
@@ -186,3 +185,5 @@ D:\新增資料夾\資訊專題\obj\Debug\資訊專題.csproj.GenerateResource.c
 D:\新增資料夾\資訊專題\obj\Debug\資訊專題.csproj.CoreCompileInputs.cache
 D:\新增資料夾\資訊專題\obj\Debug\資訊專題.exe
 D:\新增資料夾\資訊專題\obj\Debug\資訊專題.pdb
+C:\Users\Kay\Desktop\C#\computerclassreport\資訊專題\obj\Debug\資訊專題.gameformboss.resources
+C:\Users\Kay\Desktop\C#\computerclassreport\資訊專題\obj\Debug\資訊專題.gameformbackground.resources

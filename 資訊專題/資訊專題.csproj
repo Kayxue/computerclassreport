@@ -58,6 +58,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameData.cs" />
     <Compile Include="gameform.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +70,12 @@
     </Compile>
     <Compile Include="gameformbackground.Designer.cs">
       <DependentUpon>gameformbackground.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gameformboss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gameformboss.Designer.cs">
+      <DependentUpon>gameformboss.cs</DependentUpon>
     </Compile>
     <Compile Include="infoform.cs">
       <SubType>Form</SubType>
@@ -95,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gameformbackground.resx">
       <DependentUpon>gameformbackground.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gameformboss.resx">
+      <DependentUpon>gameformboss.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="infoform.resx">
       <DependentUpon>infoform.cs</DependentUpon>
@@ -156,6 +166,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="插圖.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="圖片\開始畫面.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="圖片\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="圖片\插圖4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="圖片\6.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Media;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Media;
 using System.Windows.Forms;
 
 namespace 資訊專題
@@ -15,11 +9,12 @@ namespace 資訊專題
     public partial class Form1 : Form
     {
         /*宣告變數*/
-        Point x;
-        SoundPlayer soundPlayer = new SoundPlayer();
-        PrivateFontCollection fontcollection = new PrivateFontCollection();
+        private Point x;
+        private SoundPlayer soundPlayer = new SoundPlayer();
+        private PrivateFontCollection fontcollection = new PrivateFontCollection();
 
         /*初始化與視窗音樂控制*/
+
         public Form1()
         {
             InitializeComponent();
@@ -41,7 +36,6 @@ namespace 資訊專題
             button1.Left = distance;
             button2.Left = button1.Left + button1.Width + distance;
             button3.Left = button2.Left + button2.Width + distance;
-            
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -62,6 +56,7 @@ namespace 資訊專題
         }
 
         /*底部按鈕*/
+
         private void leavegame_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -75,29 +70,39 @@ namespace 資訊專題
 
         private void button2_Click(object sender, EventArgs e)
         {
-            gameformbackground gameformbackground = new gameformbackground();
+            gameformboss gameformbackground = new gameformboss();
             gameform gameform = new gameform();
-            gameform.GetGameformbackground = gameformbackground;
+            gameformbackground gameformbackground1 = new gameformbackground();
+            GameData.gameformbackground = gameformbackground;
+            GameData.gameform = gameform;
             gameform.GetForm1 = this;
+            gameform.GetGameformbackground = gameformbackground1;
             gameformbackground.getformposition = new Point(this.Location.X, this.Location.Y);
             gameformbackground.getgameformsize = gameform.returnthisformsize;
             gameform.getfromlocation = new Point(this.Location.X, this.Location.Y);
+            gameformbackground1.Show();
             gameformbackground.Show();
             gameform.Show();
-            this.Visible=false;
+            this.Visible = false;
         }
 
         /*事件監聽器*/
+
         private void debugtext_TextChanged(object sender, EventArgs e)
         {
-            if(debugtext.Text == "again")
+            if (debugtext.Text == "again")
             {
-                gameformbackground gameformbackground = new gameformbackground();
+                gameformboss gameformbackground = new gameformboss();
                 gameform gameform = new gameform();
-                gameform.GetGameformbackground = gameformbackground;
+                gameformbackground gameformbackground1 = new gameformbackground();
+                GameData.gameformbackground = gameformbackground;
+                GameData.gameform = gameform;
                 gameform.GetForm1 = this;
-                gameform.getfromlocation = new Point(this.Location.X, this.Location.Y);
+                gameform.GetGameformbackground = gameformbackground1;
                 gameformbackground.getformposition = new Point(this.Location.X, this.Location.Y);
+                gameformbackground.getgameformsize = gameform.returnthisformsize;
+                gameform.getfromlocation = new Point(this.Location.X, this.Location.Y);
+                gameformbackground1.Show();
                 gameformbackground.Show();
                 gameform.Show();
                 debugtext.Text = "debugtext";
@@ -105,6 +110,7 @@ namespace 資訊專題
         }
 
         /*視窗間傳值*/
+
         public string getinfofromgame
         {
             set

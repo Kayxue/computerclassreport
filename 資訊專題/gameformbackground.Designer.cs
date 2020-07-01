@@ -41,7 +41,6 @@
             this.Name = "gameformbackground";
             this.Text = "gameformbackground";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.gameformbackground_Load);
             this.ResumeLayout(false);
 
         }

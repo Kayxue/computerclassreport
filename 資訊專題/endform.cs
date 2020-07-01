@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace 資訊專題
@@ -14,14 +8,15 @@ namespace 資訊專題
     public partial class endform : Form
     {
         /*宣告變數*/
-        gameform gameform=new gameform();
-        Form1 form1 = new Form1();
-        bool needagain;
-        Point x;
-        PrivateFontCollection fontcollection = new PrivateFontCollection();
+        private gameform gameform = new gameform();
+        private Form1 form1 = new Form1();
+        private bool needagain;
+        private Point x;
+        private PrivateFontCollection fontcollection = new PrivateFontCollection();
 
         /*初始化與視窗控制*/
-        public endform(Form1 menu,gameform form)
+
+        public endform(Form1 menu, gameform form)
         {
             InitializeComponent();
             gameform = form;
@@ -49,6 +44,7 @@ namespace 資訊專題
         }
 
         /*按鈕*/
+
         private void again_Click(object sender, EventArgs e)
         {
             gameform.getresult = "again";
@@ -65,8 +61,9 @@ namespace 資訊專題
             this.Close();
             this.Dispose();
         }
-        
+
         /*視窗間傳值*/
+
         public Point getfromlocation
         {
             set
@@ -85,7 +82,7 @@ namespace 資訊專題
 
         private void debugtext_TextChanged(object sender, EventArgs e)
         {
-            if(debugtext.Text == "win")
+            if (debugtext.Text == "win")
             {
                 winorlose.Text = "你贏了！";
             }

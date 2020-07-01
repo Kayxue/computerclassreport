@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace 資訊專題
@@ -14,9 +8,10 @@ namespace 資訊專題
     public partial class infoform : Form
     {
         /*宣告變數*/
-        PrivateFontCollection fontcollection = new PrivateFontCollection();
+        private PrivateFontCollection fontcollection = new PrivateFontCollection();
 
         /*初始化*/
+
         public infoform()
         {
             InitializeComponent();
@@ -31,6 +26,7 @@ namespace 資訊專題
         }
 
         /*其他元件*/
+
         private void back_Click(object sender, EventArgs e)
         {
             this.Close();
