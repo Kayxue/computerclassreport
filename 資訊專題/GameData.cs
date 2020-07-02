@@ -10,6 +10,7 @@ namespace 資訊專題
         public static int meleft;
         public static int meheart;
         public static int bossheart;
+        public static int metop;
         public static bool iffreeze;
         public static bool block;
         public static bool ifwin;
@@ -20,7 +21,12 @@ namespace 資訊專題
 
         public static void minusmeheart()
         {
-            meheart = (gameform.minusmeheart = 10);
+            meheart = (gameform.minusmeheart = 2);
+        }
+
+        public static void addmeheart()
+        {
+            meheart = (gameform.addheart = 2);
         }
 
         public static void setmeheart()

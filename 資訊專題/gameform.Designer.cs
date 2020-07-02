@@ -53,17 +53,17 @@
             this.debugtext.Size = new System.Drawing.Size(80, 16);
             this.debugtext.TabIndex = 2;
             this.debugtext.Text = "debugtext";
-            this.debugtext.Visible = false;
             this.debugtext.TextChanged += new System.EventHandler(this.debugtext_TextChanged);
             // 
             // myheart
             // 
             this.myheart.Location = new System.Drawing.Point(0, 570);
             this.myheart.Margin = new System.Windows.Forms.Padding(4);
+            this.myheart.Maximum = 50;
             this.myheart.Name = "myheart";
             this.myheart.Size = new System.Drawing.Size(933, 31);
             this.myheart.TabIndex = 3;
-            this.myheart.Value = 100;
+            this.myheart.Value = 50;
             // 
             // bossheart
             // 
@@ -98,7 +98,7 @@
             // 
             // timer4
             // 
-            this.timer4.Interval = 10;
+            this.timer4.Interval = 30;
             this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
             // 
             // timer6
@@ -113,7 +113,7 @@
             // 
             // me
             // 
-            this.me.BackColor = System.Drawing.Color.Green;
+            this.me.BackColor = System.Drawing.Color.Transparent;
             this.me.Location = new System.Drawing.Point(64, 266);
             this.me.Name = "me";
             this.me.Size = new System.Drawing.Size(119, 211);

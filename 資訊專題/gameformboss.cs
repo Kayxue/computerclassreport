@@ -10,7 +10,7 @@ namespace 資訊專題
         private Point x;
         private Size gameformsize;
         private Image[,] bossimages;
-        private int bossmoveint, nowbossimage, bossimagecount = 3;
+        private int bossmoveint, nowbossimage, bossimagecount = 6;
         private bool iffreeze;
         private string bossattackmovement = "attack";
 
@@ -20,11 +20,12 @@ namespace 資訊專題
         {
             InitializeComponent();
             bossimages = new Image[,] {
-                { Image.FromFile("魔王 初始.png"), Image.FromFile("魔王 攻擊1.png"), Image.FromFile("魔王 攻擊2.png") },
-                { Image.FromFile("魔王 初始(1).png"), Image.FromFile("魔王 攻擊1(1).png"), Image.FromFile("魔王 攻擊2(1).png") }
+                { Image.FromFile("左一.png"), Image.FromFile("左二.png"), Image.FromFile("左三.png"),Image.FromFile("左二.png"), Image.FromFile("左五.png"), Image.FromFile("左六.png") },
+                { Image.FromFile("有一.png"), Image.FromFile("有二.png"), Image.FromFile("又三.png"),Image.FromFile("有二.png"), Image.FromFile("又五.png"), Image.FromFile("又六.png") }
             };
             bossmove.Text = "left";
             nowbossimage = 0;
+            boss.Size = new Size(boss.Size.Width * 2, boss.Size.Height * 2);
         }
 
         private void gameformbackground_Load(object sender, EventArgs e)
@@ -35,7 +36,7 @@ namespace 資訊專題
             this.Size = gameformsize;
             this.TransparencyKey = Color.White;
             boss.Image = bossimages[0, 0];
-            boss.Top = this.Height - boss.Height - 100;
+            boss.Top = this.Height - boss.Height - 50;
             boss.Left = this.Width - 20 - boss.Width;
             bossmoveint = 0;
             GameData.bossleft = boss.Left;
@@ -78,7 +79,7 @@ namespace 資訊專題
 
                         if (boss.Left < GameData.meleft + GameData.mewidth)
                         {
-                            bossattackmovement = "attack";
+                            bossattackmovement = "up";
                             timer5.Enabled = true;
                             timer3.Enabled = false;
                             timer1.Enabled = false;
@@ -94,7 +95,7 @@ namespace 資訊專題
 
                         if (boss.Left + boss.Width > GameData.meleft)
                         {
-                            bossattackmovement = "attack";
+                            bossattackmovement = "up";
                             timer5.Enabled = true;
                             timer3.Enabled = false;
                             timer1.Enabled = false;
@@ -118,60 +119,75 @@ namespace 資訊專題
 
         private void timer5_Tick(object sender, EventArgs e)
         {
-            GameData.bossleft = boss.Left;
-            GameData.bosswidth = boss.Width;
-            if (bossattackmovement == "attack")
+            if (bossattackmovement == "up")
             {
-                if (nowbossimage == bossimagecount - 1)
+                if(nowbossimage < 3)
                 {
+                    nowbossimage += 1;
                     boss.Image = bossimages[bossmoveint, nowbossimage];
-                    bossattackmovement = "reset";
-                    if (!GameData.block)
+                    boss.Top -= 50;
+                    if(boss.Left < GameData.meleft + GameData.mewidth && boss.Left > GameData.meleft)
                     {
-                        GameData.minusmeheart();
-                        GameData.setmeheart();
+                        if (!GameData.block)
+                        {
+                            GameData.minusmeheart();
+                            GameData.setmeheart();
+                        }
+                        else
+                        {
+                            iffreeze = true;
+                            GameData.addmeheart();
+                        }
                     }
-                    else
+                    
+                }
+                else
+                {
+                    bossattackmovement = "down";
+                    timer5.Interval = 50;
+                }
+            }
+            else if (bossattackmovement == "down")
+            {
+                if (nowbossimage < bossimagecount-1)
+                {
+                    
+                    nowbossimage += 1;
+                    boss.Image = bossimages[bossmoveint, nowbossimage];
+                    boss.Top += 50;
+                    if (boss.Left < GameData.meleft + GameData.mewidth && boss.Left > GameData.meleft)
                     {
-                        iffreeze = true;
-                    }
-
-                    if (GameData.meheart == 0)
-                    {
-                        GameData.ifwin = false;
-                        debugtext.Text = "endgame";
+                        if (!GameData.block)
+                        {
+                            GameData.minusmeheart();
+                            GameData.setmeheart();
+                        }
+                        else
+                        {
+                            iffreeze = true;
+                            GameData.addmeheart();
+                        }
+                        
                     }
                 }
                 else
                 {
+                    boss.Top += 50;
+                    nowbossimage = 0;
                     boss.Image = bossimages[bossmoveint, nowbossimage];
-                    nowbossimage += 1;
-                }
-            }
-            else if (bossattackmovement == "reset")
-            {
-                if (nowbossimage == bossimagecount)
-                {
-                    nowbossimage = (bossimagecount - 1);
-                }
-                if (nowbossimage == 0)
-                {
-                    boss.Image = bossimages[bossmoveint, nowbossimage];
-                    timer5.Enabled = false;
                     if (iffreeze)
                     {
+                        timer5.Enabled = false;
                         timer7.Enabled = true;
+                        nowbossimage = 0;
                     }
                     else
                     {
                         timer1.Enabled = true;
                         timer3.Enabled = true;
+                        timer5.Enabled = false;
+                        nowbossimage = 0;
                     }
-                }
-                else
-                {
-                    boss.Image = bossimages[bossmoveint, nowbossimage];
-                    nowbossimage -= 1;
                 }
             }
         }

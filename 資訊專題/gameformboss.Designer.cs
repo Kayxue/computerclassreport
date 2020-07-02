@@ -42,9 +42,9 @@
             // boss
             // 
             this.boss.BackColor = System.Drawing.Color.Transparent;
-            this.boss.Location = new System.Drawing.Point(681, 115);
+            this.boss.Location = new System.Drawing.Point(681, 134);
             this.boss.Name = "boss";
-            this.boss.Size = new System.Drawing.Size(364, 362);
+            this.boss.Size = new System.Drawing.Size(364, 343);
             this.boss.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.boss.TabIndex = 9;
             this.boss.TabStop = false;
@@ -70,6 +70,7 @@
             this.debugtext.Size = new System.Drawing.Size(33, 12);
             this.debugtext.TabIndex = 10;
             this.debugtext.Text = "label1";
+            this.debugtext.Visible = false;
             this.debugtext.TextChanged += new System.EventHandler(this.debugtext_TextChanged);
             // 
             // bossmove
@@ -81,6 +82,7 @@
             this.bossmove.Size = new System.Drawing.Size(51, 12);
             this.bossmove.TabIndex = 11;
             this.bossmove.Text = "bossmove";
+            this.bossmove.Visible = false;
             // 
             // timer7
             // 

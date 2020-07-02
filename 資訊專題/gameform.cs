@@ -66,6 +66,7 @@ namespace 資訊專題
             resume = false;
             startwalk = false;
             walking = false;
+            
             mewalkwidth = me.Width + 150;
             menormalwidth = me.Width;
             meblockheight = me.Height + 40;
@@ -221,7 +222,7 @@ namespace 資訊專題
                         if (me.Left + me.Width > GameData.bossleft && me.Left < GameData.bossleft + GameData.bosswidth && attack == false && walking == false)
                         {
                             GameData.block = false;
-                            attack = true;
+                            
                             meattackmovement = "attack";
                             timer6.Enabled = true;
                             //meattacksound.Play();
@@ -261,6 +262,8 @@ namespace 資訊專題
                         startwalk = false;
                     }
                 }
+
+                
             }
         }
 
@@ -280,7 +283,9 @@ namespace 資訊專題
                 if (nowmeimage == meimagecount - 1)
                 {
                     me.Image = meimagesblock[memove, nowmeimage];
-                    timer4.Enabled = false;
+                    meblockpicturemovement = "reset";
+                    GameData.block = false;
+                    
                 }
                 else
                 {
@@ -291,6 +296,7 @@ namespace 資訊專題
                     }
                     me.Image = meimagesblock[memove, nowmeimage];
                     nowmeimage += 1;
+                    
                 }
             }
             else if (meblockpicturemovement == "reset")
@@ -303,7 +309,6 @@ namespace 資訊專題
                 {
                     me.Image = meimagesblock[memove, nowmeimage];
                     timer4.Enabled = false;
-                    GameData.block = false;
                 }
                 else
                 {
@@ -337,6 +342,7 @@ namespace 資訊專題
                         if (nowmeattackimage >= 1)
                         {
                             me.Size = new Size(mewalkwidth, me.Height);
+                            attack = true;
                         }
                         me.Image = meimagesattackone[memove, nowmeattackimage];
                         nowmeattackimage += 1;
@@ -350,6 +356,7 @@ namespace 資訊專題
                             debugtext.Text = "endgame";
                         }
                         bosshearttext.Text = bossheart.Value.ToString();
+                        
                     }
                 }
                 else if (meattackmovement == "reset")
@@ -362,6 +369,7 @@ namespace 資訊專題
                     {
                         me.Image = meimagesattacktwo[memove, nowmeattackimage];
                         me.Size = new Size(menormalwidth, me.Height);
+                        
                         GameData.mewidth = me.Width;
                         GameData.meleft = me.Left;
                         me.Image = meimagesattackone[memove, nowmeattackimage];
@@ -464,6 +472,8 @@ namespace 資訊專題
             }
         }
 
+        
+
         /*視窗間傳值*/
 
         public Form1 GetForm1
@@ -502,14 +512,34 @@ namespace 資訊專題
         {
             set
             {
-                if (myheart.Value - 10 <= 0)
+                if (myheart.Value - value <= 0)
                 {
                     GameData.ifwin = false;
                     GameData.sendstatustobackground("endgame");
                 }
                 else
                 {
-                    myheart.Value -= 10;
+                    myheart.Value -= value;
+                }
+            }
+            get
+            {
+                return myheart.Value;
+            }
+        }
+
+        public int addheart
+        {
+            set
+            {
+                if(myheart.Value+value > myheart.Maximum)
+                {
+                    myheart.Value = myheart.Maximum;
+                }
+                else
+                {
+                    myheart.Value += value;
+                    myhearttext.Text = myheart.Value.ToString();
                 }
             }
             get
