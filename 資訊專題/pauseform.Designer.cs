@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.restart = new System.Windows.Forms.Button();
-            this.continuegame = new System.Windows.Forms.PictureBox();
+            this.restart = new System.Windows.Forms.PictureBox();
             this.backtomenu = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.continuegame)).BeginInit();
+            this.continuegame = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.restart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.backtomenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.continuegame)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -49,26 +50,14 @@
             // 
             // restart
             // 
-            this.restart.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.restart.BackColor = System.Drawing.Color.Transparent;
+            this.restart.Image = global::資訊專題.Properties.Resources._10;
             this.restart.Location = new System.Drawing.Point(47, 129);
             this.restart.Name = "restart";
             this.restart.Size = new System.Drawing.Size(132, 37);
-            this.restart.TabIndex = 1;
-            this.restart.Text = "重新開始";
-            this.restart.UseVisualStyleBackColor = true;
-            this.restart.Click += new System.EventHandler(this.restart_Click);
-            // 
-            // continuegame
-            // 
-            this.continuegame.BackColor = System.Drawing.Color.Black;
-            this.continuegame.Image = global::資訊專題.Properties.Resources.插圖4;
-            this.continuegame.Location = new System.Drawing.Point(47, 86);
-            this.continuegame.Name = "continuegame";
-            this.continuegame.Size = new System.Drawing.Size(132, 37);
-            this.continuegame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.continuegame.TabIndex = 5;
-            this.continuegame.TabStop = false;
-            this.continuegame.Click += new System.EventHandler(this.continuegame_Click);
+            this.restart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.restart.TabIndex = 7;
+            this.restart.TabStop = false;
             // 
             // backtomenu
             // 
@@ -82,24 +71,37 @@
             this.backtomenu.TabStop = false;
             this.backtomenu.Click += new System.EventHandler(this.backtomenu_Click);
             // 
+            // continuegame
+            // 
+            this.continuegame.BackColor = System.Drawing.Color.Black;
+            this.continuegame.Image = global::資訊專題.Properties.Resources._600;
+            this.continuegame.Location = new System.Drawing.Point(47, 86);
+            this.continuegame.Name = "continuegame";
+            this.continuegame.Size = new System.Drawing.Size(132, 37);
+            this.continuegame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.continuegame.TabIndex = 5;
+            this.continuegame.TabStop = false;
+            this.continuegame.Click += new System.EventHandler(this.continuegame_Click);
+            // 
             // pauseform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(244, 221);
+            this.Controls.Add(this.restart);
             this.Controls.Add(this.backtomenu);
             this.Controls.Add(this.continuegame);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.restart);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "pauseform";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "遊戲暫停中......";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.pauseform_FormClosed);
-            ((System.ComponentModel.ISupportInitialize)(this.continuegame)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.restart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.backtomenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.continuegame)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,8 +110,8 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button restart;
         private System.Windows.Forms.PictureBox continuegame;
         private System.Windows.Forms.PictureBox backtomenu;
+        private System.Windows.Forms.PictureBox restart;
     }
 }

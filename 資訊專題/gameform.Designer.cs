@@ -103,7 +103,7 @@
             // 
             // timer6
             // 
-            this.timer6.Interval = 10;
+            this.timer6.Interval = 50;
             this.timer6.Tick += new System.EventHandler(this.timer6_Tick);
             // 
             // timer8
@@ -113,11 +113,11 @@
             // 
             // me
             // 
-            this.me.BackColor = System.Drawing.Color.Transparent;
+            this.me.BackColor = System.Drawing.Color.Green;
             this.me.Location = new System.Drawing.Point(64, 266);
             this.me.Name = "me";
             this.me.Size = new System.Drawing.Size(119, 211);
-            this.me.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.me.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.me.TabIndex = 9;
             this.me.TabStop = false;
             this.me.LocationChanged += new System.EventHandler(this.me_LocationChanged);

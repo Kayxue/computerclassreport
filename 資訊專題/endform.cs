@@ -25,11 +25,18 @@ namespace 資訊專題
             fontcollection.AddFontFile(Application.StartupPath + "\\新特明體.TTC");
             Font font = new Font(fontcollection.Families[0], 20);
             this.Font = font;
+            
         }
 
         private void endform_Load(object sender, EventArgs e)
         {
             this.Location = x;
+            int distance = (this.Width - restart.Width - backtomenu.Width) / 3;
+            int top = this.Height - restart.Height - 40;
+            restart.Top = top;
+            backtomenu.Top = top;
+            restart.Left = distance;
+            backtomenu.Left = restart.Left + restart.Width + distance;
         }
 
         private void endform_FormClosed(object sender, FormClosedEventArgs e)

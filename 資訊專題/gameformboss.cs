@@ -30,6 +30,7 @@ namespace 資訊專題
         private void gameformbackground_Load(object sender, EventArgs e)
         {
             GameData.gameformbackground = this;
+            this.TopMost = true;
             this.Location = x;
             this.Size = gameformsize;
             this.TransparencyKey = Color.White;
@@ -117,6 +118,8 @@ namespace 資訊專題
 
         private void timer5_Tick(object sender, EventArgs e)
         {
+            GameData.bossleft = boss.Left;
+            GameData.bosswidth = boss.Width;
             if (bossattackmovement == "attack")
             {
                 if (nowbossimage == bossimagecount - 1)
